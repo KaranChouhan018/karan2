@@ -1,15 +1,20 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import localFont from 'next/font/local';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const spaceMono = localFont({
+  src: '../../public/fonts/GeneralSans-Bold.otf',
+  variable: '--font-space-mono',
+  display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const neue = localFont({
+  src: '../../public/fonts/PPNeueMontreal-Medium.otf',
+  variable: '--font-neue-montreal',
+  display: 'swap',
+})
 
 export const metadata = {
   title: "Create Next App",
@@ -18,12 +23,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" className={`  scroller-hidden ${spaceMono.variable} ${neue.variable}`}>
+      <body className= {`${spaceMono.className} ${neue.className} antialiased`}>      
+          <CustomCursor />
+          <Navbar />
+          {children}
+          <Footer />
       </body>
+
     </html>
   );
 }
