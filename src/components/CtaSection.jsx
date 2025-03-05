@@ -53,17 +53,17 @@ const CtaSection = () => {
   }, []);
 
   return (
-    <div className="relative max-w-[95%] mx-auto bg-[#0C0C0B] rounded-lg text-white min-h-screen flex flex-col justify-center items-center p-4 sm:p-6">
+    <div className="relative max-w-[95%] mx-auto px-4 md:px-6 bg-[#0C0C0B] rounded-lg text-white min-h-screen flex flex-col justify-center items-center p-4 sm:p-6">
       {/* Small text at the top */}
-      <p className="text-md sm:text-sm font-space text-[#6D665E] mb-4 sm:mb-6">
-        ( Need an unfair advantage ? )
+      <p className="text-md font-mono text-[#3A3733] mb-4 sm:mb-6">
+        (Need an unfair advantage?) 
       </p>
 
       {/* Main headline */}
       <div className="text-center mb-8 sm:mb-12">
         <h1 
           ref={headingRef}
-          className=" text-[#C4C4BB] text-7xl md:text-9xl overflow-hidden font-neue font-bold tracking-lighter"
+          className="text-7xl text-[#C4C4BB] md:text-9xl overflow-hidden font-bold tracking-lighter"
           style={{ perspective: "1000px" }}
         >
           LET&apos;S MAKE
@@ -73,7 +73,7 @@ const CtaSection = () => {
       </div>
 
       <Link
-        className="group pointer-events-auto relative flex px-15 py-8 md:px-20 md:py-20 transform-none items-center justify-center overflow-hidden rounded-full bg-[#3A3733] font-bold uppercase tracking-base  px-space-lg py-space-sm text-base"
+        className="group pointer-events-auto relative flex px-20 py-8 md:py-10 transform-none items-center justify-center overflow-hidden rounded-full bg-[#3A3733] font-bold uppercase tracking-base  px-space-lg py-space-sm text-base"
         path="/"
         href='https://cal.com/karan-chouhan-2jvqjy/15min'
       >
@@ -97,8 +97,8 @@ const CtaSection = () => {
       </Link>
 
       {/* Bottom Info Section */}
-      <div className="absolute bottom-4 sm:bottom-8 left-0 w-full flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0 px-4 sm:px-6">
-        <div className="flex items-center border border-gray-700 rounded-lg p-2 hidden md:block ">
+      <div className="absolute bottom-10 sm:bottom-8 left-0 w-full flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0 px-4 sm:px-6">
+        <div className="md:flex hidden md:block  md:items-center border border-[#C4C4BB] rounded-lg p-2">
           <div className="mr-3">
             <Image
               src="/earth.svg"
@@ -108,21 +108,21 @@ const CtaSection = () => {
               className="w-6 h-6 sm:w-8 sm:h-8 animate-spin"
             />
           </div>
-          <div className="border-l border-gray-700 pl-3">
-            <p className="text-gray-400 text-xs sm:text-sm">Working Globally</p>
-            <p className="text-gray-400 text-xs sm:text-sm">
+          <div className="border-l border-[#C4C4BB] pl-3">
+            <p className="text-[#C4C4BB] text-xs sm:text-sm">Working Globally</p>
+            <p className="text-[#C4C4BB] text-xs sm:text-sm">
               Available Apr &apos;25
             </p>
           </div>
         </div>
 
-        <div className="text-center mb-4 sm:text-right">
-          <p className=" text-md font-bold sm:text-sm">
+        <div className="text-center sm:text-right">
+          <p className="text-[#C4C4BB] text-md font-bold sm:text-sm">
             FOR FURTHER INQUIRIES
           </p>
-          <p className=" text-sm sm:text-sm flex items-center justify-center sm:justify-end">
+          <p className="text-[#C4C4BB] text-sm sm:text-sm flex items-center justify-center sm:justify-end">
             <span className="mr-2">↳</span>
-            chouhankaran2017@<span>gmail.com</span>
+            KaranChouhan@<span className="">gmail.com</span>
           </p>
         </div>
       </div>

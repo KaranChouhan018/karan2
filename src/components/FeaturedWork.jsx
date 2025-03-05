@@ -6,49 +6,56 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
 import DistortionImage from './DistortionImage';
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 const WORKS = [
   {
     id: 1,
     title: 'Synthetic Human',
-    categories: ['WEB', 'DESIGN', 'DEVELOPMENT', '3D'],
+    categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D'],
     image: '/images/floating_1.jpg',
+    centerImage: '/p1.png',
     slug: 'synthetic-human'
   },
   {
     id: 2,
     title: 'Porsche: Dream Machine',
-    categories: ['CONCEPT', '3D ILLUSTRATION', 'MOGRAPH', 'VIDEO'],
+    categories: ['CONCEPT •', '3D ILLUSTRATION •', 'MOGRAPH •', 'VIDEO'],
     image: '/images/floating_2.jpg',
+    centerImage: '/p1.png',
     slug: 'porsche-dream-machine'
   },
   {
     id: 3,
     title: 'Synthetic Human',
-    categories: ['WEB', 'DESIGN', 'DEVELOPMENT', '3D'],
+    categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D'],
     image: '/images/floating_3.jpg',
+    centerImage: '/p1.png',
     slug: 'synthetic-human'
   },
   {
     id: 4,
     title: 'Porsche: Dream Machine',
-    categories: ['CONCEPT', '3D ILLUSTRATION', 'MOGRAPH', 'VIDEO'],
+    categories: ['CONCEPT •', '3D ILLUSTRATION •', 'MOGRAPH •', 'VIDEO '],
     image: '/images/floating_4.jpg',
+    centerImage: '/p1.png',
     slug: 'porsche-dream-machine'
   },
   {
     id: 5,
     title: 'Synthetic Human',
-    categories: ['WEB', 'DESIGN', 'DEVELOPMENT', '3D'],
+    categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D '],
     image: '/images/floating_5.jpg',
+    centerImage: '/p1.png',
     slug: 'synthetic-human'
   },
   {
     id: 6,
     title: 'Porsche: Dream Machine',
-    categories: ['CONCEPT', '3D ILLUSTRATION', 'MOGRAPH', 'VIDEO'],
+    categories: ['CONCEPT •', '3D ILLUSTRATION •', 'MOGRAPH •', 'VIDEO '],
     image: '/images/floating_6.jpg',
+    centerImage: '/p1.png',
     slug: 'porsche-dream-machine'
   }
 ];
@@ -126,8 +133,8 @@ const FeaturedWork = () => {
   }, []);
 
   return (
-    <section className="min-h-screen z-[10000] p-4 md:p-8" ref={sectionRef}>
-      <div className="max-w-[95%] mx-auto">
+    <section className="min-h-screen z-[10000] " ref={sectionRef}>
+      <div className="max-w-[95%] mx-auto px-4 md:px-6">
         <SectionHeading 
           title="Featured Work / "
           description="A SELECTION OF OUR MOST PASSIONATELY CRAFTED WORKS WITH FORWARD-THINKING CLIENTS AND FRIENDS OVER THE YEARS."
@@ -143,8 +150,9 @@ const FeaturedWork = () => {
   );
 };
 
-const ProjectCard = React.memo(({ title, categories, image, slug }) => {
+const ProjectCard = React.memo(({ title, categories, image, centerImage, slug }) => {
   const imageRef = useRef(null);
+  const categoriesRef = useRef([]);
 
   const handleMouseEnter = () => {
     gsap.to(imageRef.current, {
@@ -162,28 +170,85 @@ const ProjectCard = React.memo(({ title, categories, image, slug }) => {
     });
   };
 
+  useEffect(() => {
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    
+    categoriesRef.current.forEach((categoryElement, index) => {
+      if (!categoryElement) return; // Prevent null errors
+
+      const originalText = categoryElement.dataset.value;
+      let iteration = 0;
+      let interval;
+
+      const scrambleText = () => {
+        clearInterval(interval);
+        interval = setInterval(() => {
+          categoryElement.innerText = originalText
+            .split("")
+            .map((letter, idx) => {
+              if (idx < iteration) {
+                return originalText[idx];
+              }
+              return letters[Math.floor(Math.random() * 26)];
+            })
+            .join("");
+
+          if (iteration >= originalText.length) {
+            clearInterval(interval);
+          }
+          iteration += 1 / 3;
+        }, 30);
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            scrambleText();
+          }
+        });
+      }, { threshold: 0.5 });
+
+      observer.observe(categoryElement);
+
+      return () => {
+        clearInterval(interval);
+        observer.disconnect();
+      };
+    });
+  }, [categories]);
+
   return (
     <Link href={`/projects/${slug}`} className="group block overflow-hidden grid_item">
-      <div 
-        
-        className="aspect-[4/3] rounded-3xl relative overflow-hidden"
-    
-      >
+      <div className="aspect-[4/3] rounded-3xl relative overflow-hidden">
         <DistortionImage
-         ref={imageRef}
-        
+          ref={imageRef}
           src={image}
           alt={title}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           className="w-full h-full"
         />
+        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+          <Image
+            src={centerImage}
+            width={500}
+            height={500}
+            alt={`${title} Center Image`}
+            className="w-1/2 h-auto scale-140 rounded-lg"
+          />
+        </div>
       </div>
       <div className="mt-4">
         <div className="flex flex-wrap gap-2 mb-2">
           {categories.map((category, index) => (
-            <span key={category} className="text-sm text-white">
-              {category}{index < categories.length - 1 && ' • '}
+            <span 
+              key={category} 
+              className="text-sm" 
+              data-value={category} 
+              ref={el => categoriesRef.current[index] = el}
+            >
+              {category}
+              {index < categories.length - 1 && <span className="mx-1">•</span>}
             </span>
           ))}
         </div>
@@ -198,6 +263,7 @@ const ProjectCard = React.memo(({ title, categories, image, slug }) => {
   );
 });
 
+
 ProjectCard.displayName = 'ProjectCard';
 
 const SectionHeading = ({ title, description, headingRef }) => (
@@ -207,6 +273,7 @@ const SectionHeading = ({ title, description, headingRef }) => (
       className="text-6xl md:text-8xl font-light overflow-hidden"
     >
       {title}
+      <span className=" "><sup>(06)</sup></span>
     </h1>
     <p className="w-full  text-[#7A7875] md:max-w-xs text-sm ">{description}</p>
   </div>

@@ -41,7 +41,7 @@ export default function Navbar() {
     gsap.set(menuRef.current, { y: -100 });
 
     gsap.to(menuRef.current, {
-      y: -10,
+      y: -15,
       duration: 1,
       delay: 5,
     })
@@ -72,7 +72,7 @@ export default function Navbar() {
 
             <div
               onClick={() => setMenuIsActive(!menuIsActive)}
-              className="relative flex bg-[#CDCDC3] overflow-hidden items-center justify-center w-[60px] h-[60px]  md:w-[70px] md:h-[70px]   rounded-full before:absolute before:inset-0 before:translate-y-full   before:rounded-full before:bg-[#3A3733] before:transition-all before:duration-[400ms] before:ease-in-out hover:before:translate-y-0  after:absolute after:inset-0 after:translate-y-full after:rounded-full after:bg-[#8C8C73] after:transition-all after:duration-[600ms] after:ease-in-out hover:after:translate-y-0 cursor-pointer"
+              className="relative flex bg-[#CDCDC3] overflow-hidden items-center justify-center w-[60px] h-[60px]  md:w-[60px] md:h-[60px]   rounded-full before:absolute before:inset-0 before:translate-y-full   before:rounded-full before:bg-[#3A3733] before:transition-all before:duration-[400ms] before:ease-in-out hover:before:translate-y-0  after:absolute after:inset-0 after:translate-y-full after:rounded-full after:bg-[#8C8C73] after:transition-all after:duration-[600ms] after:ease-in-out hover:after:translate-y-0 cursor-pointer"
             >
               <div className="relative flex flex-col z-40 justify-between h-[14px] w-[32px]">
                 <span

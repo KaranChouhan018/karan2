@@ -163,7 +163,7 @@ export default function AboutSvg() {
             </div>
 
             {/* About section */}
-            <div className="mb-12">
+            <div className="mb-12 ">
               <h2 className="text-[#D0D0C6] text-sm mb-4">(ABOUT ME)</h2>
               <p className="text-[#7A7875] text-md  mb-6">
                 Creating great web experiences is my primary focus. I ensure

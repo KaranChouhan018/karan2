@@ -56,7 +56,7 @@ export default function Home() {
         <CtaSection />
       </main>
 
-      <div className="fixed top-0 w-screen h-screen pointer-events-none  ">
+      {/* <div className="fixed top-0 w-screen h-screen pointer-events-none  ">
           <Canvas className="pointer-events-none">
       <EffectComposer>
     <Fluid
@@ -80,7 +80,7 @@ export default function Home() {
     />
     </EffectComposer>
   </Canvas>
-    </div>
+    </div> */}
 
      
   
