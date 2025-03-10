@@ -12,7 +12,7 @@ const Footer = ( ) => {
   const timeZone = 'IND'; // Melbourne time zone as shown in the image
 
   return (
-    <footer className=" py-16 ">
+    <footer className=" py-16 sticky bottom-0 ">
       <div className="container1 max-w-[95%] mx-auto px-4 md:px-6">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
           {/* Menu Section */}
@@ -20,11 +20,11 @@ const Footer = ( ) => {
             <h3 className="font-medium text-lg mb-4">Menu</h3>
             <div className="h-px w-full bg-[#6D665E] bg-opacity-50 mb-4"></div>
             <ul className="space-y-2 font-light ">
-              <li><Link href="/" className="hover:text-stone-900">Home</Link></li>
-              <li><Link href="/" className="hover:text-stone-900">About</Link></li>
-              <li><Link href="/services" className="hover:text-stone-900">Services</Link></li>
-              <li><Link href="/works" className="hover:text-stone-900">Works</Link></li>
-              <li><Link href="/works" className="hover:text-stone-900">Contact</Link></li>
+              <li><Link href="/" className="relative hover-underline-animation">Home</Link></li>
+              <li><Link href="#/About" className="relative hover-underline-animation">About</Link></li>
+              <li><Link href="/services" className="relative hover-underline-animation">Services</Link></li>
+              <li><Link href="/works" className="relative hover-underline-animation">Works</Link></li>
+              <li><Link href="/works" className="relative hover-underline-animation">Contact</Link></li>
             </ul>
           </div>
 
@@ -34,9 +34,9 @@ const Footer = ( ) => {
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
             <ul className="space-y-2 font-light">
               <li><Link href="https://linkedin.com" className="font-thin">LinkedIn</Link></li>
-              <li><Link href="https://instagram.com" className="hover:text-stone-900">Instagram</Link></li>
-              <li><Link href="https://bento.me" className="hover:text-stone-900">Telegram</Link></li>
-              <li><Link href="https://github.com" className="hover:text-stone-900">WhatsApp</Link></li>
+              <li><Link href="https://instagram.com" className="relative hover-underline-animation">Instagram</Link></li>
+              <li><Link href="https://bento.me" className="relative hover-underline-animation">Telegram</Link></li>
+              <li><Link href="https://github.com" className="relative hover-underline-animation">WhatsApp</Link></li>
             </ul>
           </div>
 
@@ -45,9 +45,9 @@ const Footer = ( ) => {
             <h3 className="font-medium text-lg mb-4">Resources</h3>
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
             <ul className="space-y-2 font-light">
-              <li><Link href="https://pillarstack.com" className="hover:text-stone-900">Pillarstack</Link></li>
-              <li><Link href="https://figma.com/templates" className="hover:text-stone-900">Figma Templates</Link></li>
-              <li><Link href="/newsletter" className="hover:text-stone-900">Monthly Newsletter</Link></li>
+              <li><Link href="https://pillarstack.com" className="relative hover-underline-animation">Pillarstack</Link></li>
+              <li><Link href="/FloatingImage" className="relative hover-underline-animation">Figma Templates</Link></li>
+              <li><Link href="/newsletter" className="relative hover-underline-animation">Monthly Newsletter</Link></li>
             </ul>
           </div>
         </div>
@@ -55,9 +55,9 @@ const Footer = ( ) => {
             <h3 className="font-medium mt-6 text-lg mb-4">Resources</h3>
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
             <ul className="space-y-2">
-              <li><Link href="https://pillarstack.com" className="hover:text-stone-900">Pillarstack</Link></li>
-              <li><Link href="https://figma.com/templates" className="hover:text-stone-900">Figma Templates</Link></li>
-              <li><Link href="/newsletter" className="hover:text-stone-900">Monthly Newsletter</Link></li>
+              <li><Link href="https://pillarstack.com" className="relative hover-underline-animation">Pillarstack</Link></li>
+              <li><Link href="https://figma.com/templates" className="">Figma Templates</Link></li>
+              <li><Link href="/newsletter" className="relative hover-underline-animation">Monthly Newsletter</Link></li>
             </ul>
           </div>
 
@@ -72,7 +72,7 @@ const Footer = ( ) => {
           </div>
           <div className=" md:mt-0">
             <p className="uppercase text-sm font-bold mb-1">LOCAL TIME</p>
-            <p className="font-mono font-normal text-[#7A7875]">{`${hours}:${minutes} AM, ${timeZone}`}</p>
+            <p className="font-mono font-normal text-[#7A7875]">{`${hours}:${minutes}:${seconds} AM, ${timeZone}`}</p>
           </div>
           <div className="flex justify-end ">
           <button 

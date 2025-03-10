@@ -4,6 +4,7 @@ import { Fluid } from "@whatisjery/react-fluid-distortion";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
+import Navbar from "@/components/Navbar"; 
 import Preloader from "@/Preloader";
 import Scene from "@/components/Scene";
 import About from "@/components/About";
@@ -34,7 +35,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 4000);
+    }, 8000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -42,10 +43,10 @@ export default function Home() {
   return (
     <>
       <main className="w-screen overflow-x-hidden" ref={mainRef}>
-        <AnimatePresence mode="wait">
+        {/* <AnimatePresence mode="wait">
           {isLoading && <Preloader />}
-        </AnimatePresence>
-     
+        </AnimatePresence> */}
+   
         <div className="w-full h-screen overflow-x-clip">
           <Scene />
         </div>
@@ -56,33 +57,6 @@ export default function Home() {
         <CtaSection />
       </main>
 
-      {/* <div className="fixed top-0 w-screen h-screen pointer-events-none  ">
-          <Canvas className="pointer-events-none">
-      <EffectComposer>
-    <Fluid
-     radius={0.03}
-     curl={10}
-     swirl={5}
-     distortion={1}
-     force={2}
-     pressure={0.94}
-     densityDissipation={0.98}
-     velocityDissipation={0.99}
-     intensity={0.3}
-     rainbow={false}
-     blend={0}
-     showBackground={false}
-     backgroundColor='#a7958b'
-     fluidColor='#7A7875'
-      
-
-  
-    />
-    </EffectComposer>
-  </Canvas>
-    </div> */}
-
-     
   
 
   

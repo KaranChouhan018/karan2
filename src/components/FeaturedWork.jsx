@@ -23,7 +23,7 @@ const WORKS = [
     title: 'Porsche: Dream Machine',
     categories: ['CONCEPT •', '3D ILLUSTRATION •', 'MOGRAPH •', 'VIDEO'],
     image: '/images/floating_2.jpg',
-    centerImage: '/p1.png',
+    centerImage: '/p2.png',
     slug: 'porsche-dream-machine'
   },
   {
@@ -31,7 +31,7 @@ const WORKS = [
     title: 'Synthetic Human',
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D'],
     image: '/images/floating_3.jpg',
-    centerImage: '/p1.png',
+    centerImage: '/p3.png',
     slug: 'synthetic-human'
   },
   {
@@ -39,7 +39,7 @@ const WORKS = [
     title: 'Porsche: Dream Machine',
     categories: ['CONCEPT •', '3D ILLUSTRATION •', 'MOGRAPH •', 'VIDEO '],
     image: '/images/floating_4.jpg',
-    centerImage: '/p1.png',
+    centerImage: '/p4.png',
     slug: 'porsche-dream-machine'
   },
   {
@@ -47,7 +47,7 @@ const WORKS = [
     title: 'Synthetic Human',
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D '],
     image: '/images/floating_5.jpg',
-    centerImage: '/p1.png',
+    centerImage: '/p5.png',
     slug: 'synthetic-human'
   },
   {
@@ -55,7 +55,7 @@ const WORKS = [
     title: 'Porsche: Dream Machine',
     categories: ['CONCEPT •', '3D ILLUSTRATION •', 'MOGRAPH •', 'VIDEO '],
     image: '/images/floating_6.jpg',
-    centerImage: '/p1.png',
+    centerImage: '/p6.png',
     slug: 'porsche-dream-machine'
   }
 ];

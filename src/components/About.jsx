@@ -104,7 +104,7 @@ export default function Services() {
       
       <section className="relative mt-[5rem]">
         {/* Header Section - Static */}
-        <div className="py-16 max-w-[90%] mx-auto">
+        <div className="py-16 max-w-[93%] mx-auto">
           <h1 
           ref={headerTitleRef}
           className="text-6xl md:text-7xl lg:text-8xl font-bold overflow-hidden text-[#D0D0C6] mb-8">
@@ -192,7 +192,7 @@ export default function Services() {
                 <div className="flex justify-between items-start mb-6">
                   <h3 className="text-2xl md:text-3xl text-[#D0D0C6]  font-bold">UI/UX Design</h3>
                   <Image
-                    src="/Shape.svg"
+                    src="/shape2.svg"
                     height={6}
                     width={6}
                     alt="Arrow"

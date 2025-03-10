@@ -47,13 +47,12 @@ export default function AboutSvg() {
         // Set initial state for heading characters
         gsap.set(headingText.lines, {
           opacity: 0,
-          y: 50,
         });
     
         // Create animation for heading characters
         gsap.to(headingText.lines, {
           opacity: 1,
-          y: 0,
+          
           duration: 1,
           stagger: 0.1,
           ease: "power4.out",
@@ -91,9 +90,9 @@ export default function AboutSvg() {
         />
       </svg>
 
-      <div className="absolute top-0 left-0 right-0 bottom-0  mt-[5%] flex items-start justify-center ">
+      <div className="absolute top-0 left-0 right-0 bottom-0  mt-[20%] md:mt-[5%] flex items-start justify-center ">
         <Link
-          class="group pointer-events-auto relative flex px-20 py-8 transform-none items-center justify-center overflow-hidden rounded-full bg-[#3A3733] font-bold uppercase tracking-base  px-space-lg py-space-sm text-base"
+          class="group pointer-events-auto relative flex px-10 md:px-20 py-4 md:py-8 transform-none items-center justify-center overflow-hidden rounded-full bg-[#3A3733] font-bold uppercase tracking-base  px-space-lg py-space-sm text-base"
           href={"/Projects"}
         >
           <span className="absolute inset-0 z-10 block overflow-hidden">
@@ -137,7 +136,7 @@ export default function AboutSvg() {
 
       <div className="flex flex-col  md:px-16 md:justify-between w-full  md:flex-row min-h-screen absolute top-[30%]  md:top-[40%] text-white">
         {/* Left side - Image */}
-        <div className="md:w-[40%] p-6 flex place-items-center ">
+        <div className=" p-6 flex place-items-center ">
           <div className="max-w-md mx-auto ">
             <Image 
               src="/images/floating_1.jpg"
@@ -155,7 +154,7 @@ export default function AboutSvg() {
             {/* Main intro */}
             <div className="mb-16">
               <h1 ref={headingRef}  className="text-xl overflow-hidden md:text-2xl text-[#D0D0C6] font-light leading-relaxed">
-                With a passion for design and development, I take projects from
+                 With a passion for design and development, I take projects from
                 ideation to launch, ensuring a seamless journey that leaves a
                 lasting positive impact on the digital landscape and your
                 business.

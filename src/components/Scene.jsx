@@ -7,6 +7,7 @@ import SplitType from "split-type";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import SceneText from "./SceneText";
+import Navbar from "./Navbar";
 
 function CameraController() {
   const { camera } = useThree();
@@ -82,12 +83,15 @@ export default function Scene() {
             ]}
             position={[0, 0, 2]}
           />
+
+
         
           <Model />
           
         </Canvas>
 
         <SceneText/>
+   
         
       </div>
     </div>
