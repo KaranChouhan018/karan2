@@ -40,6 +40,44 @@ export default function Model() {
 
   const { scene: imageScene, camera: imageCamera } = Images(viewport, imageTextures);
 
+  const [deviceOrientation, setDeviceOrientation] = useState({ beta: 0, gamma: 0 });
+  const groupRef = useRef();
+  const isTouch = typeof window !== 'undefined' && ('ontouchstart' in window);
+
+  // Handle device orientation changes
+  useEffect(() => {
+    const handleOrientation = (event) => {
+      setDeviceOrientation({
+        beta: event.beta,
+        gamma: event.gamma
+      });
+    };
+
+    const requestPermission = async () => {
+      if (typeof DeviceOrientationEvent !== 'undefined' && 
+          typeof DeviceOrientationEvent.requestPermission === 'function') {
+        try {
+          const permission = await DeviceOrientationEvent.requestPermission();
+          if (permission === 'granted') {
+            window.addEventListener('deviceorientation', handleOrientation);
+          }
+        } catch (error) {
+          console.error('Error requesting device orientation permission:', error);
+        }
+      } else {
+        window.addEventListener('deviceorientation', handleOrientation);
+      }
+    };
+
+    if (isTouch) {
+      requestPermission();
+    }
+
+    return () => {
+      window.removeEventListener('deviceorientation', handleOrientation);
+    };
+  }, [isTouch]);
+
   useEffect(() => {
     const generatedMeshes = Array.from({ length: max }).map((_, i) => (
       <mesh
@@ -72,6 +110,7 @@ export default function Model() {
     if (Math.abs(x - prevMouse.x) > 0.1 || Math.abs(y - prevMouse.y) > 0.1) {
       setCurrentWave((currentWave + 1) % max);
       setNewWave(x, y, currentWave);
+      
     }
     setPrevMouse({ x: x, y: y });
   }
@@ -124,6 +163,36 @@ export default function Model() {
       uniforms.current.winResolution.value = new THREE.Vector2(device.width, device.height).multiplyScalar(
         device.pixelRatio
       );
+    }
+
+    // Apply movement to images based on device orientation or mouse position
+    if (imageScene) {
+      imageScene.children.forEach(group => {
+        if (group instanceof THREE.Group) {
+          group.children.forEach((image, index) => {
+            const originalPos = image.userData.originalPosition;
+            
+            if (isTouch && deviceOrientation.beta && deviceOrientation.gamma) {
+              // Device orientation movement
+              const moveFactorX = deviceOrientation.gamma * 0.002; // Adjust sensitivity
+              const moveFactorY = deviceOrientation.beta * 0.002; // Adjust sensitivity
+              
+              image.position.x = originalPos.x + moveFactorX * (index + 1);
+              image.position.y = originalPos.y + moveFactorY * (index + 1);
+            } else {
+              // Mouse movement
+              const mouseX = (mouse.x - device.width / 2) * 0.001;
+              const mouseY = (-mouse.y + device.height / 2) * 0.001;
+              
+              image.position.x = originalPos.x + mouseX * (index + 1);
+              image.position.y = originalPos.y + mouseY * (index + 1);
+            }
+
+            // Add subtle floating animation
+            image.position.y += Math.sin(Date.now() * 0.001 + index) * 0.1;
+          });
+        }
+      });
     }
   }, 1);
 
@@ -194,7 +263,7 @@ export default function Model() {
       
     ];
 
-    // Create and position each image
+    // Create and position each image with movement
     for (let i = 0; i < 9; i++) {
       const material = new THREE.MeshBasicMaterial({ 
         map: textures[i],
@@ -205,28 +274,32 @@ export default function Model() {
       const image = new THREE.Mesh(geometry, material);
       const layout = imageLayouts[i];
       
-      // Apply position
+      // Store original position for animation
+      image.userData.originalPosition = {
+        x: layout.position.x,
+        y: layout.position.y,
+        z: layout.position.z
+      };
+      
       image.position.set(
         layout.position.x,
         layout.position.y,
         layout.position.z
       );
       
-      // Apply scale
       image.scale.set(
         layout.scale.x,
         layout.scale.y,
         1
       );
       
-      // Apply rotation
       image.rotation.z = layout.rotation;
       
       group.add(image);
     }
   
     scene.add(group);
-    return { scene, camera };
+    return { scene, camera, group };
   }
   return (
     <>

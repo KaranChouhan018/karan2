@@ -1,16 +1,99 @@
 "use client";
-import { useState , useRef ,useEffect, use } from "react";
+import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
 import Magnetic from "@/common/Magentic";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Navbar() {
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
+  const navRef = useRef(null);
   const [menuIsActive, setMenuIsActive] = useState(false);
   const [hoveredLink, setHoveredLink] = useState(null);
+
+  useEffect(() => {
+    // Initial setup for navbar
+    gsap.set(menuRef.current, { 
+      y: -100,
+      opacity: 0 
+    });
+
+    // Animate navbar in
+    gsap.to(menuRef.current, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      delay: 0.5
+    });
+
+    // Navbar scroll animation
+    gsap.to(menuRef.current, {
+      scrollTrigger: {
+        trigger: document.documentElement,
+        start: "top top",
+        end: "100 top",
+        onUpdate: (self) => {
+          // Hide navbar when scrolling down, show when scrolling up
+          if (self.direction === 1) {
+            gsap.to(menuRef.current, {
+              y: 0,
+              opacity: 0,
+              duration: 0.5,
+              ease: "power2.inOut"
+            });
+          } else {
+            gsap.to(menuRef.current, {
+              y: 0,
+              opacity: 1,
+              duration: 0.5,
+              ease: "power2.inOut"
+            });
+          }
+        }
+      }
+    });
+
+    // Hamburger button animation
+    gsap.set(hamburgerRef.current, { 
+      scale: 0,
+      opacity: 0 
+    });
+
+    gsap.to(hamburgerRef.current, {
+      scrollTrigger: {
+        trigger: document.documentElement,
+        start: "0",
+        end: "window.innerheight",
+        scrub: true
+      },
+      scale: 1,
+      opacity: 1,
+      duration: 0.5,
+      ease: "power2.out"
+    });
+
+    // Navigation links animation
+    gsap.to(navRef.current, {
+      scrollTrigger: {
+        trigger: document.documentElement,
+        start: "top top",
+        end: "100 top",
+        scrub: true,
+      },
+      opacity: 0,
+
+    });
+
+    return () => {
+      // Cleanup
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   const menuVariants = {
     initial: { y: "-100%" },
@@ -37,83 +120,90 @@ export default function Navbar() {
     },
   };
 
+  const scrollToSection = (sectionId, e) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 100; // Adjust this value based on your navbar height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-  useEffect(() => {
-    gsap.set(menuRef.current, { y: -100 });
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+    // Close menu if it's open
+    if (menuIsActive) {
+      setMenuIsActive(false);
+    }
+  };
 
-    gsap.to(menuRef.current, {
-      y: -15,
-      duration: 1,
-      delay: 5,
-    })
-
-    gsap.to(menuRef.current, {
-      scrollTrigger: {
-        trigger: menuRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-        opacity:0
-      }
-    })
-  }, []);
-
-  useEffect(() => {
-    gsap.set(hamburgerRef.current, { scale:0})
-  })
-
-
-  
   return (
     <>
-      <div ref={menuRef} className="w-screen fixed top-0 flex justify-between px-5 py-1 md:py-2 z-[100] md:px-10 items-center">
+      <div 
+        ref={menuRef} 
+        className="w-screen fixed top-0 flex justify-between px-5 py-1 md:py-10 z-[100] md:px-10 items-center "
+      >
         {/* Logo Section */}
-        <Magnetic>
-          <div className="flex items-center">
-            <Image
-              src="/images/logo1.png"
-              alt="Logo"
-              width={100}
-              height={100}
-              className="object-fill mix-blend-screen"
-            />
-          </div>
-        </Magnetic>
-
-        {/* Menu Button Section */}
-        <Magnetic>
-          <div className="flex items-center ">
-          <ul className="flex flex-col md:flex-row  font-light cl-effect-5">
-              <li><Link href="/"><span data-hover="Home">Home</span>,</Link></li>
-              <li><Link href="#/About"><span data-hover="About">About</span>,</Link></li>
-              <li><Link href="/services"><span data-hover="Services">Services</span>,</Link></li>
-              <li><Link href="/works"><span data-hover="Works">Works</span>,</Link></li>
-              <li><Link href="/works"><span data-hover="Contact">Contact</span></Link></li>
-            </ul>
-           
-
-            <div
-            ref={hamburgerRef}
-              onClick={() => setMenuIsActive(!menuIsActive)}
-              className="relative flex bg-[#CDCDC3] overflow-hidden items-center justify-center w-[60px] h-[60px]  md:w-[60px] md:h-[60px]   rounded-full before:absolute before:inset-0 before:translate-y-full   before:rounded-full before:bg-[#3A3733] before:transition-all before:duration-[400ms] before:ease-in-out hover:before:translate-y-0  after:absolute after:inset-0 after:translate-y-full after:rounded-full after:bg-[#8C8C73] after:transition-all after:duration-[600ms] after:ease-in-out hover:after:translate-y-0 cursor-pointer"
-            >
-              <div className="relative flex flex-col z-40 justify-between h-[14px] w-[32px]">
-                <span
-                  className={`block w-full h-[1px] bg-black transition-transform duration-300 ease-in-out transform-origin-center ${
-                    menuIsActive ? "rotate-45 translate-y-[6px]" : ""
-                  }`}
-                />
-                <span
-                  className={`block w-full h-[1px] bg-black transition-transform duration-300 ease-in-out transform-origin-center ${
-                    menuIsActive ? "-rotate-45 -translate-y-[6px]" : ""
-                  }`}
-                />
-              </div>
+        
+          <div className="flex flex-col items-start md:gap-16 justify-between md:items-center">
+            <div>
+              <h1 className="font-bold text-md md:text-xl">CodeByKaran <sup>©</sup></h1>
+            </div>
+            <div>
+              <h1 className="text-sm">(Website Designer & Developer)</h1>
             </div>
           </div>
-        </Magnetic>
+    
+
+        <div className="flex items-center">
+          <ul ref={navRef} className="flex flex-col pt-2 md:pt-0 md:flex-row font-light cl-effect-5">
+           
+            <li>
+              <Link href="#about" onClick={(e) => scrollToSection('about', e)}>
+                <span data-hover="Services">Services</span>,
+              </Link>
+            </li>
+            <li>
+              <Link href="#service" onClick={(e) => scrollToSection('about', e)}>
+                <span data-hover="About">About</span>,
+              </Link>
+            </li>
+            <li>
+              <Link href="#works" onClick={(e) => scrollToSection('works', e)}>
+                <span data-hover="Works">Works</span>,
+              </Link>
+            </li>
+            <li>
+              <Link href="#contact" onClick={(e) => scrollToSection('contact', e)}>
+                <span data-hover="Contact">Contact</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
 
+      <div
+            ref={hamburgerRef}
+            onClick={() => setMenuIsActive(!menuIsActive)}
+            className="fixed top-10 right-10 flex bg-[#CDCDC3] overflow-hidden items-center justify-center w-[60px] h-[60px] md:w-[60px] md:h-[60px] rounded-full before:absolute before:inset-0 before:translate-y-full before:rounded-full before:bg-[#3A3733] before:transition-all before:duration-[400ms] before:ease-in-out hover:before:translate-y-0 after:absolute after:inset-0 after:translate-y-full after:rounded-full after:bg-[#8C8C73] after:transition-all after:duration-[600ms] after:ease-in-out hover:after:translate-y-0 cursor-pointer"
+          >
+            <div className="relative flex flex-col z-40 justify-between h-[14px] w-[32px]">
+              <span
+                className={`block w-full h-[1px] bg-black transition-transform duration-300 ease-in-out transform-origin-center ${
+                  menuIsActive ? "rotate-45 translate-y-[6px]" : ""
+                }`}
+              />
+              <span
+                className={`block w-full h-[1px] bg-black transition-transform duration-300 ease-in-out transform-origin-center ${
+                  menuIsActive ? "-rotate-45 -translate-y-[6px]" : ""
+                }`}
+              />
+            </div>
+          </div>
+
+          
       <div className="w-full   md:w-[600px] h-[500px]  fixed right-0 z-[90]">
         <motion.div
           variants={menuVariants}
@@ -153,17 +243,19 @@ export default function Navbar() {
         >
           {/* Navigation Links */}
           <div className="flex flex-col items-center justify-center md:justify-start font-extrabold font-space-mono text-5xl md:flex-row md:space-x-4 mt-[100px] z-[120] mb-20">
-            {["HOME", "ABOUT", "WORK"].map((link, index) => (
-              <div
-                key={index}
-                className="relative"
-          
-              >
+            {[
+              { text: "HOME", id: "home" },
+              { text: "ABOUT", id: "about" },
+              { text: "WORK", id: "works" },
+              { text: "CONTACT", id: "contact" }
+            ].map((link, index) => (
+              <div key={index} className="relative">
                 <Link
-                  href={`/${link.toLowerCase()}`}
+                  href={`#${link.id}`}
+                  onClick={(e) => scrollToSection(link.id, e)}
                   className="relative text-white hover:text-gray-400"
                 >
-                  {link}
+                  {link.text}
                 </Link>
               </div>
             ))}
@@ -192,6 +284,9 @@ export default function Navbar() {
           </div>
         </motion.div>
       </div>
+
+      
     </>
+    
   );
 }

@@ -47,14 +47,26 @@ export default function Home() {
           {isLoading && <Preloader />}
         </AnimatePresence>
    
-        <div className="w-full h-screen overflow-x-clip">
-          <Scene />
-        </div>
+            
+        <div className="w-full h-screen overflow-x-clip" id="home">
+              <Scene />
+            </div>
 
-        <About />
-        <FeaturedWork  />
-        <AboutSvg />
-        <CtaSection />
+            <div id="service">
+              <About />
+            </div>
+
+            <div id="works">
+              <FeaturedWork />
+            </div>
+
+            <div id="about">
+            <AboutSvg />
+            </div>
+
+            <div id="contact">
+              <CtaSection />
+            </div>
       </main>
 
   

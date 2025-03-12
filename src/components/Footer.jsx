@@ -20,11 +20,31 @@ const Footer = ( ) => {
             <h3 className="font-medium text-lg mb-4">Menu</h3>
             <div className="h-px w-full bg-[#6D665E] bg-opacity-50 mb-4"></div>
             <ul className="space-y-2 font-light cl-effect-5">
-              <li><Link href="/"><span data-hover="Home">Home</span></Link></li>
-              <li><Link href="#/About"><span data-hover="About">About</span></Link></li>
-              <li><Link href="/services"><span data-hover="Services">Services</span></Link></li>
-              <li><Link href="/works"><span data-hover="Works">Works</span></Link></li>
-              <li><Link href="/works"><span data-hover="Contact">Contact</span></Link></li>
+            <li>
+              <Link href="/" onClick={(e) => scrollToSection('home', e)}>
+                <span data-hover="Home">Home</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="#about" onClick={(e) => scrollToSection('home', e)}>
+                <span data-hover="Services">Services</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="#about" onClick={(e) => scrollToSection('about', e)}>
+                <span data-hover="About">About</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="#works" onClick={(e) => scrollToSection('works', e)}>
+                <span data-hover="Works">Works</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="#contact" onClick={(e) => scrollToSection('contact', e)}>
+                <span data-hover="Contact">Contact</span>
+              </Link>
+            </li>
             </ul>
           </div>
 
@@ -99,7 +119,7 @@ const Footer = ( ) => {
             
           </button>
                    
-              {/* Second SVG - initially hidden below, appears on hover */}
+              {/* Second SVG - initially hidden below, acan youppears on hover */}
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 className="h-6 w-6 absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
