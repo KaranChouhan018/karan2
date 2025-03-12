@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 const WORKS = [
   {
     id: 1,
-    title: 'Synt',
+    title: 'Your Company : Web App',
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D'],
     image: '/images/floating_1.jpg',
     centerImage: '/p1.png',
@@ -22,14 +22,14 @@ const WORKS = [
   {
     id: 2,
     title: 'LiveDocs : Text Editor',
-    categories: ['CONCEPT •', '3D ILLUSTRATION •', 'MOGRAPH •', 'VIDEO'],
+    categories: ['CONCEPT •', '3D  •', 'MOGRAPH •', 'VIDEO'],
     image: '/images/floating_2.jpg',
     centerImage: '/p2.png',
     slug: 'porsche-dream-machine='
   },
   {
     id: 3,
-    title: 'Niklas Designs',
+    title: 'Niklas Designs : Portfolio',
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D'],
     image: '/images/floating_3.jpg',
     centerImage: '/p3.png',
@@ -38,7 +38,7 @@ const WORKS = [
   {
     id: 4,
     title: 'Porsche: Dream Machine',
-    categories: ['CONCEPT •', '3D ILLUSTRATION •', 'MOGRAPH •', 'VIDEO '],
+    categories: ['CONCEPT •', '3D  •', 'MOGRAPH •', 'VIDEO '],
     image: '/images/floating_4.jpg',
     centerImage: '/p4.png',
     slug: 'porsche-dream-machine'
@@ -54,7 +54,7 @@ const WORKS = [
   {
     id: 6,
     title: 'Porsche: Dream Machine',
-    categories: ['CONCEPT •', '3D ILLUSTRATION •', 'MOGRAPH •', 'VIDEO '],
+    categories: ['CONCEPT •', '3D  •', 'MOGRAPH •', 'VIDEO '],
     image: '/images/floating_6.jpg',
     centerImage: '/p6.png',
     slug: 'porsche-dream-machine'

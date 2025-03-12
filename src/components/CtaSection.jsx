@@ -120,7 +120,7 @@ const CtaSection = () => {
           <p className="text-[#C4C4BB] text-md font-bold sm:text-sm">
             FOR FURTHER INQUIRIES
           </p>
-          <div className="flex items-center justify-end">
+          <div className="flex items-center justify-center lg:justify-end ">
           <span className="mr-2 ">↳</span>
           <ul className="space-y-2 font-light text-[#C4C4BB] cl-effect-5">
               <li><Link href="/"><span data-hover="codebykayo.com">codebykayo.com</span></Link></li>

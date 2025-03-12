@@ -13,6 +13,7 @@ export default function Navbar() {
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
   const navRef = useRef(null);
+  const bookRef = useRef(null);
   const [menuIsActive, setMenuIsActive] = useState(false);
   const [hoveredLink, setHoveredLink] = useState(null);
 
@@ -61,33 +62,36 @@ export default function Navbar() {
     // Hamburger button animation
     gsap.set(hamburgerRef.current, { 
       scale: 0,
-      opacity: 0 
+    
     });
 
     gsap.to(hamburgerRef.current, {
       scrollTrigger: {
         trigger: document.documentElement,
-        start: "0",
-        end: "window.innerheight",
-        scrub: true
-      },
-      scale: 1,
-      opacity: 1,
-      duration: 0.5,
-      ease: "power2.out"
-    });
+        start: "1200px top",
+        end: "window.innerHeight",
+        onLeave: () => {gsap.to(hamburgerRef.current, {scale: 1, duration: 0.25, ease: "power1.out"})},
 
-    // Navigation links animation
-    gsap.to(navRef.current, {
+        onEnterBack: () => {gsap.to(hamburgerRef.current, {scale: 0, duration: 0.25, ease: "power1.out"})}
+      }
+    });
+    
+
+    gsap.to(bookRef.current, {
       scrollTrigger: {
         trigger: document.documentElement,
-        start: "top top",
-        end: "100 top",
-        scrub: true,
-      },
-      opacity: 0,
+        start: "1280px top",
+        end: "window.innerHeight",
+      
 
+          onLeave: () => {gsap.to(bookRef.current, {scale: 1, duration: 0.25, ease: "power1.out"})},
+
+          onEnterBack: () => {gsap.to(bookRef.current, {scale: 0, duration: 0.25, ease: "power1.out"})}
+
+      },
     });
+
+ 
 
     return () => {
       // Cleanup
@@ -147,12 +151,12 @@ export default function Navbar() {
       >
         {/* Logo Section */}
         
-          <div className="flex flex-col items-start md:gap-16 justify-between md:items-center">
+          <div className="flex flex-col md:flex-row items-start md:gap-16 justify-between md:items-center">
             <div>
               <h1 className="font-bold text-md md:text-xl">CodeByKaran <sup>©</sup></h1>
             </div>
             <div>
-              <h1 className="text-sm">(Website Designer & Developer)</h1>
+              <h1 className="text-sm font-mono ">(Website Designer & Developer)</h1>
             </div>
           </div>
     
@@ -187,7 +191,7 @@ export default function Navbar() {
       <div
             ref={hamburgerRef}
             onClick={() => setMenuIsActive(!menuIsActive)}
-            className="fixed top-10 right-10 flex bg-[#CDCDC3] overflow-hidden items-center justify-center w-[60px] h-[60px] md:w-[60px] md:h-[60px] rounded-full before:absolute before:inset-0 before:translate-y-full before:rounded-full before:bg-[#3A3733] before:transition-all before:duration-[400ms] before:ease-in-out hover:before:translate-y-0 after:absolute after:inset-0 after:translate-y-full after:rounded-full after:bg-[#8C8C73] after:transition-all after:duration-[600ms] after:ease-in-out hover:after:translate-y-0 cursor-pointer"
+            className="fixed top-10 right-6 lg:right-10 flex bg-[#CDCDC3] overflow-hidden items-center justify-center w-[55px] h-[55px] md:w-[60px] md:h-[60px] rounded-full before:absolute before:inset-0 before:translate-y-full before:rounded-full before:bg-[#3A3733] before:transition-all before:duration-[400ms] before:ease-in-out hover:before:translate-y-0 after:absolute after:inset-0 after:translate-y-full after:rounded-full after:bg-[#8C8C73] after:transition-all after:duration-[600ms] after:ease-in-out hover:after:translate-y-0 cursor-pointer z-[100]"
           >
             <div className="relative flex flex-col z-40 justify-between h-[14px] w-[32px]">
               <span
@@ -201,7 +205,36 @@ export default function Navbar() {
                 }`}
               />
             </div>
+
+            
           </div>
+
+          
+
+          <Link
+          ref={bookRef}
+        className="group scale-0 pointer-events-auto fixed top-10 right-20 lg:right-26 flex px-6 py-3.5 md:py-4.5 md:px-8 transform-none items-center justify-center overflow-hidden rounded-full bg-[#3A3733] font-bold uppercase tracking-base  px-space-lg py-space-sm z-[100] "
+        path="/"
+        href='https://cal.com/karan-chouhan-2jvqjy/15min'
+      >
+        <span className="absolute inset-0 z-10 block overflow-hidden">
+          <span className="block h-full w-full translate-y-full rounded-t-[15rem] bg-[#8C8C73] transition-all duration-500 ease-expo sm:group-hover:translate-y-0 sm:group-hover:rounded-none"></span>
+        </span>
+        <span className="relative text-md z-20 block overflow-hidden transition-all">
+          <span
+            after="Book a Call  ↗"
+            className="block after:absolute after:left-0 after:block after:translate-y-0 after:transition-all after:duration-500 after:ease-expo after:content-[attr(after)] sm:group-hover:after:-translate-y-[100%]"
+            href='https://cal.com/karan-chouhan-2jvqjy/15min'
+          >
+            <span
+            href='https://cal.com/karan-chouhan-2jvqjy/15min'
+             className="flex transition-all duration-500 ease-expo sm:group-hover:-translate-y-full">
+              Book a Call ↗
+
+            </span>
+          </span>
+        </span>
+      </Link>
 
           
       <div className="w-full   md:w-[600px] h-[500px]  fixed right-0 z-[90]">
@@ -242,12 +275,11 @@ export default function Navbar() {
           className="h-[400px] w-full md:w-[700px] relative z-[100] bg-[#3A3834] shadow-2xl  rounded-b-3xl flex flex-col justify-center px-14 py-20"
         >
           {/* Navigation Links */}
-          <div className="flex flex-col items-center justify-center md:justify-start font-extrabold font-space-mono text-5xl md:flex-row md:space-x-4 mt-[100px] z-[120] mb-20">
+          <div className="flex flex-col items-center justify-center md:justify-start font-extrabold font-space-mono text-3xl lg:text-5xl md:flex-row md:space-x-4 mt-[100px] z-[120] mb-20">
             {[
               { text: "HOME", id: "home" },
               { text: "ABOUT", id: "about" },
               { text: "WORK", id: "works" },
-              { text: "CONTACT", id: "contact" }
             ].map((link, index) => (
               <div key={index} className="relative">
                 <Link
