@@ -12,7 +12,7 @@ const Footer = ( ) => {
 
 
   return (
-    <footer className=" py-16 sticky bottom-0 ">
+    <footer className=" py-16 z-[100] ">
       <div className="container1 max-w-[95%] mx-auto px-4 md:px-6">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
           {/* Menu Section */}
