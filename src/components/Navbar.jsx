@@ -1,5 +1,5 @@
 "use client";
-import { useState , useRef ,useEffect } from "react";
+import { useState , useRef ,useEffect, use } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import Magnetic from "@/common/Magentic";
@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 
 export default function Navbar() {
   const menuRef = useRef(null);
+  const hamburgerRef = useRef(null);
   const [menuIsActive, setMenuIsActive] = useState(false);
   const [hoveredLink, setHoveredLink] = useState(null);
 
@@ -46,7 +47,23 @@ export default function Navbar() {
       delay: 5,
     })
 
+    gsap.to(menuRef.current, {
+      scrollTrigger: {
+        trigger: menuRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+        opacity:0
+      }
+    })
   }, []);
+
+  useEffect(() => {
+    gsap.set(hamburgerRef.current, { scale:0})
+  })
+
+
+  
   return (
     <>
       <div ref={menuRef} className="w-screen fixed top-0 flex justify-between px-5 py-1 md:py-2 z-[100] md:px-10 items-center">
@@ -65,12 +82,18 @@ export default function Navbar() {
 
         {/* Menu Button Section */}
         <Magnetic>
-          <div className="flex items-center space-x-4">
-            <div className=" hidden md:block text-2xl text-[#CDCDC3]  mix-blend-difference">
-              {menuIsActive ? "Close" : "Menu"}
-            </div>
+          <div className="flex items-center ">
+          <ul className="flex flex-col md:flex-row  font-light cl-effect-5">
+              <li><Link href="/"><span data-hover="Home">Home</span>,</Link></li>
+              <li><Link href="#/About"><span data-hover="About">About</span>,</Link></li>
+              <li><Link href="/services"><span data-hover="Services">Services</span>,</Link></li>
+              <li><Link href="/works"><span data-hover="Works">Works</span>,</Link></li>
+              <li><Link href="/works"><span data-hover="Contact">Contact</span></Link></li>
+            </ul>
+           
 
             <div
+            ref={hamburgerRef}
               onClick={() => setMenuIsActive(!menuIsActive)}
               className="relative flex bg-[#CDCDC3] overflow-hidden items-center justify-center w-[60px] h-[60px]  md:w-[60px] md:h-[60px]   rounded-full before:absolute before:inset-0 before:translate-y-full   before:rounded-full before:bg-[#3A3733] before:transition-all before:duration-[400ms] before:ease-in-out hover:before:translate-y-0  after:absolute after:inset-0 after:translate-y-full after:rounded-full after:bg-[#8C8C73] after:transition-all after:duration-[600ms] after:ease-in-out hover:after:translate-y-0 cursor-pointer"
             >
@@ -91,16 +114,16 @@ export default function Navbar() {
         </Magnetic>
       </div>
 
-      <div className="w-full   md:w-[700px] h-[500px]  fixed right-0 z-[90]">
+      <div className="w-full   md:w-[600px] h-[500px]  fixed right-0 z-[90]">
         <motion.div
           variants={menuVariants}
           initial="initial"
           animate={menuIsActive ? "animate" : "exit"}
-          className={`fixed right-0 bg-[#1C1C1C] z-[90] w-full md:w-[700px] overflow-hidden h-[500px] rounded-b-3xl ${
+          className={`fixed right-0 bg-[#1C1C1C] z-[90] w-full md:w-[600px] overflow-hidden h-[500px] rounded-b-3xl ${
             menuIsActive ? "pointer-events-auto" : "pointer-events-none"
           }`}
         >
-          <div className="absolute bottom-6 right-8 text-white text-right">
+          <div className="absolute bottom-6 right-8 text-sm text-right">
             <p>Located in India</p>
             <p>
               {new Date().toLocaleDateString("en-US", {
@@ -114,11 +137,11 @@ export default function Navbar() {
               {new Date().toLocaleTimeString("en-US", {
                 hour: "2-digit",
                 minute: "2-digit",
-                hour12: true,
+                hour12: false,
               })}
             </p>
           </div>
-          <div className="absolute bottom-[-100px] left-[-100px]  mt-[5%]  w-[300px] h-[300px] bg-[#3A3834] bg-opacity-20 rounded-full">
+          <div className="absolute bottom-[-100px] left-[-100px] text-sm  mt-[5%]  w-[300px] h-[300px] bg-[#3A3834] bg-opacity-20 rounded-full">
 
           </div>
         </motion.div>
@@ -129,13 +152,12 @@ export default function Navbar() {
           className="h-[400px] w-full md:w-[700px] relative z-[100] bg-[#3A3834] shadow-2xl  rounded-b-3xl flex flex-col justify-center px-14 py-20"
         >
           {/* Navigation Links */}
-          <div className="flex flex-col items-center justify-center md:justify-start font-extrabold text-3xl md:text-6xl md:flex-row md:space-x-4 mt-[100px] z-[120] mb-20">
+          <div className="flex flex-col items-center justify-center md:justify-start font-extrabold font-space-mono text-5xl md:flex-row md:space-x-4 mt-[100px] z-[120] mb-20">
             {["HOME", "ABOUT", "WORK"].map((link, index) => (
               <div
                 key={index}
                 className="relative"
-                onMouseEnter={() => setHoveredLink(link)}
-                onMouseLeave={() => setHoveredLink(null)}
+          
               >
                 <Link
                   href={`/${link.toLowerCase()}`}
@@ -143,21 +165,6 @@ export default function Navbar() {
                 >
                   {link}
                 </Link>
-                {hoveredLink === link && (
-                  <motion.svg
-                    className="absolute top-4 left-0 w-full h-10"
-                    viewBox="0 0 485 187"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10 126.31C399.288 -221.188 108.365 341.759 475 126.31"
-                      stroke="yellow"
-                      strokeWidth="30"
-                      strokeLinecap="round"
-                    />
-                  </motion.svg>
-                )}
               </div>
             ))}
           </div>

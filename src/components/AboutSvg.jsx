@@ -11,6 +11,7 @@ export default function AboutSvg() {
   const svgRef = useRef(null);
   const pathRef = useRef(null);
   const headingRef = useRef(null);
+  const imageRef = useRef(null);
 
   useEffect(() => {
     const path = pathRef.current;
@@ -38,40 +39,54 @@ export default function AboutSvg() {
       },
     });
 
-        // Split the h1 text into characters
-        const headingText = new SplitType(headingRef.current, {
-          types: 'lines, chars',
-          tagName: 'span'
-        });
-    
-        // Set initial state for heading characters
-        gsap.set(headingText.lines, {
-          opacity: 0,
-        });
-    
-        // Create animation for heading characters
-        gsap.to(headingText.lines, {
-          opacity: 1,
-          
-          duration: 1,
-          stagger: 0.1,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 80%",
-            end: "top 20%",
-            scrub: 1,
-          },
-        });
-    
-        // Cleanup
-        return () => {
-          ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-          headingText.revert(); // Revert the SplitType changes
-        };
-      }, []);
+    // Split the h1 text into characters
+    const headingText = new SplitType(headingRef.current, {
+      types: 'lines, chars',
+      tagName: 'span'
+    });
 
-    
+    // Set initial state for heading characters
+    gsap.set(headingText.lines, {
+      opacity: 0,
+    });
+
+    // Create animation for heading characters
+    gsap.to(headingText.lines, {
+      opacity: 1,
+      duration: 1,
+      stagger: 0.1,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: headingRef.current,
+        start: "top 80%",
+        end: "top 20%",
+        scrub: 1,
+      },
+    });
+
+    // Parallax effect for the image
+    gsap.fromTo(imageRef.current, 
+      { y: 0 }, // Starting position
+      {
+        y: -50, // Move up by 50px (adjust as needed)
+        ease: "none",
+        scrollTrigger: {
+          trigger: imageRef.current,
+          start: "top bottom", // Start when the top of the image hits the bottom of the viewport
+          end: "bottom top", // End when the bottom of the image hits the top of the viewport
+          scrub: true, // Smooth scrubbing effect
+          markers: false, // Set to true for debugging
+        }
+      }
+    );
+
+    // Cleanup
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      headingText.revert(); // Revert the SplitType changes
+    };
+  }, []);
+
   return (
     <div ref={svgRef} className="w-full relative font-neue ">
       <svg
@@ -92,7 +107,7 @@ export default function AboutSvg() {
 
       <div className="absolute top-0 left-0 right-0 bottom-0  mt-[20%] md:mt-[5%] flex items-start justify-center ">
         <Link
-          class="group pointer-events-auto relative flex px-10 md:px-20 py-4 md:py-8 transform-none items-center justify-center overflow-hidden rounded-full bg-[#3A3733] font-bold uppercase tracking-base  px-space-lg py-space-sm text-base"
+          className="group pointer-events-auto relative flex px-10 md:px-20 py-4 md:py-8 transform-none items-center justify-center overflow-hidden rounded-full bg-[#3A3733] font-bold uppercase tracking-base  px-space-lg py-space-sm text-base"
           href={"/Projects"}
         >
           <span className="absolute inset-0 z-10 block overflow-hidden">
@@ -103,7 +118,7 @@ export default function AboutSvg() {
               after="See more Work ↗"
               className="block after:absolute after:left-0 after:block after:translate-y-0 after:transition-all after:duration-500 after:ease-expo after:content-[attr(after)] sm:group-hover:after:-translate-y-[100%]"
             >
-              <span class="flex transition-all duration-500 ease-expo sm:group-hover:-translate-y-full">
+              <span className="flex transition-all duration-500 ease-expo sm:group-hover:-translate-y-full">
                 See more Work ↗
               </span>
             </span>
@@ -136,8 +151,8 @@ export default function AboutSvg() {
 
       <div className="flex flex-col  md:px-16 md:justify-between w-full  md:flex-row min-h-screen absolute top-[30%]  md:top-[40%] text-white">
         {/* Left side - Image */}
-        <div className=" p-6 flex place-items-center ">
-          <div className="max-w-md mx-auto ">
+        <div className="p-6 flex place-items-center">
+          <div ref={imageRef} className="max-w-md mx-auto overflow-hidden">
             <Image 
               src="/images/floating_1.jpg"
               alt="Profile"
@@ -182,5 +197,4 @@ export default function AboutSvg() {
       </div>
     </div>
   );
-  
 }

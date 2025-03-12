@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 const WORKS = [
   {
     id: 1,
-    title: 'Synthetic Human',
+    title: 'Synt',
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D'],
     image: '/images/floating_1.jpg',
     centerImage: '/p1.png',
@@ -20,15 +21,15 @@ const WORKS = [
   },
   {
     id: 2,
-    title: 'Porsche: Dream Machine',
+    title: 'LiveDocs : Text Editor',
     categories: ['CONCEPT •', '3D ILLUSTRATION •', 'MOGRAPH •', 'VIDEO'],
     image: '/images/floating_2.jpg',
     centerImage: '/p2.png',
-    slug: 'porsche-dream-machine'
+    slug: 'porsche-dream-machine='
   },
   {
     id: 3,
-    title: 'Synthetic Human',
+    title: 'Niklas Designs',
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D'],
     image: '/images/floating_3.jpg',
     centerImage: '/p3.png',
@@ -44,10 +45,10 @@ const WORKS = [
   },
   {
     id: 5,
-    title: 'Synthetic Human',
+    title: 'Ingenio : Synthetic Human',
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D '],
     image: '/images/floating_5.jpg',
-    centerImage: '/p5.png',
+    centerImage: '/p7.png',
     slug: 'synthetic-human'
   },
   {

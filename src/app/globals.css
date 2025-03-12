@@ -115,3 +115,28 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  .cl-effect-5 a {
+    overflow: hidden;
+    padding: 0 4px;
+    height: 1.5em;
+    display: inline-block;
+  }
+
+  .cl-effect-5 a span {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s;
+  }
+
+  .cl-effect-5 a span::before {
+    position: absolute;
+    top: 100%;
+    content: attr(data-hover);
+    transform: translate3d(0,0,0);
+  }
+
+  .cl-effect-5 a:hover span,
+  .cl-effect-5 a:focus span {
+    transform: translateY(-100%);
+  }

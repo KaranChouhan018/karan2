@@ -35,7 +35,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 8000);
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -43,9 +43,9 @@ export default function Home() {
   return (
     <>
       <main className="w-screen overflow-x-hidden" ref={mainRef}>
-        {/* <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait">
           {isLoading && <Preloader />}
-        </AnimatePresence> */}
+        </AnimatePresence>
    
         <div className="w-full h-screen overflow-x-clip">
           <Scene />

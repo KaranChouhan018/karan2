@@ -98,7 +98,7 @@ const CtaSection = () => {
 
       {/* Bottom Info Section */}
       <div className="absolute bottom-10 sm:bottom-8 left-0 w-full flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0 px-4 sm:px-6">
-        <div className="md:flex hidden md:block  md:items-center border border-[#C4C4BB] rounded-lg p-2">
+        <div className="md:flex hidden md:block  md:items-center border border-[#C4C4BB] rounded-md p-2">
           <div className="mr-3">
             <Image
               src="/earth.svg"
@@ -109,21 +109,24 @@ const CtaSection = () => {
             />
           </div>
           <div className="border-l border-[#C4C4BB] pl-3">
-            <p className="text-[#C4C4BB] text-xs sm:text-sm">Working Globally</p>
-            <p className="text-[#C4C4BB] text-xs sm:text-sm">
+            <p className="text-[#C4C4BB] text-sm ">Working Globally</p>
+            <p className="text-[#C4C4BB] text-sm">
               Available Apr &apos;25
             </p>
           </div>
         </div>
 
-        <div className="text-center sm:text-right">
+        <div className="text-center sm:text-right cl-effect-5">
           <p className="text-[#C4C4BB] text-md font-bold sm:text-sm">
             FOR FURTHER INQUIRIES
           </p>
-          <p className="text-[#C4C4BB] text-sm sm:text-sm flex items-center justify-center sm:justify-end">
-            <span className="mr-2">↳</span>
-            KaranChouhan@<span className="">gmail.com</span>
-          </p>
+          <div className="flex items-center justify-end">
+          <span className="mr-2 ">↳</span>
+          <ul className="space-y-2 font-light text-[#C4C4BB] cl-effect-5">
+              <li><Link href="/"><span data-hover="codebykayo.com">codebykayo.com</span></Link></li>
+          </ul>
+          </div>
+         
         </div>
       </div>
     </div>
