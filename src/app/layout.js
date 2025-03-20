@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
           <CustomCursor />
           <Navbar />
           {children}
-          <Footer />
+      
       </body>
 
     </html>

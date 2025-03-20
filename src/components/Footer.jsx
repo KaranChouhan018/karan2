@@ -10,9 +10,24 @@ const Footer = ( ) => {
   const minutes = now.getMinutes().toString().padStart(2, '0');
   const timeZone = 'IND'; // Melbourne time zone as shown in the image
 
+  // Scroll to section function
+  const scrollToSection = (sectionId, e) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
-    <footer className=" py-16 z-[1000] ">
+    <footer className=" py-16  ">
       <div className="container1 max-w-[95%] mx-auto px-4 md:px-6">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
           {/* Menu Section */}
@@ -20,31 +35,23 @@ const Footer = ( ) => {
             <h3 className="font-medium text-lg mb-4">Menu</h3>
             <div className="h-px w-full bg-[#6D665E] bg-opacity-50 mb-4"></div>
             <ul className="space-y-2 font-light cl-effect-5">
-            <li>
-              <Link href="/" onClick={(e) => scrollToSection('home', e)}>
-                <span data-hover="Home">Home</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="#about" onClick={(e) => scrollToSection('home', e)}>
-                <span data-hover="Services">Services</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="#about" onClick={(e) => scrollToSection('about', e)}>
-                <span data-hover="About">About</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="#works" onClick={(e) => scrollToSection('works', e)}>
-                <span data-hover="Works">Works</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="#contact" onClick={(e) => scrollToSection('contact', e)}>
-                <span data-hover="Contact">Contact</span>
-              </Link>
-            </li>
+              {[
+                { text: "Home", id: "home" },
+                { text: "Services", id: "services" },
+                { text: "About", id: "about" },
+                { text: "Works", id: "works" },
+                { text: "Contact", id: "contact" }
+              ].map((item, index) => (
+                <li key={index} className="w-full touch-auto">
+                  <a
+                    href={`#${item.id}`}
+                    onClick={(e) => scrollToSection(item.id, e)}
+                    className="block w-full py-2 touch-auto"
+                  >
+                    <span data-hover={item.text} className="block">{item.text}</span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -53,10 +60,23 @@ const Footer = ( ) => {
             <h3 className="font-medium text-lg font-space-mono mb-4">Socials</h3>
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
             <ul className="space-y-2 font-light cl-effect-5">
-              <li><Link href="https://linkedin.com"><span data-hover="LinkedIn">LinkedIn</span></Link></li>
-              <li><Link href="https://instagram.com"><span data-hover="Instagram">Instagram</span></Link></li>
-              <li><Link href="https://bento.me"><span data-hover="Telegram">Telegram</span></Link></li>
-              <li><Link href="https://github.com"><span data-hover="WhatsApp">WhatsApp</span></Link></li>
+              {[
+                { text: "LinkedIn", href: "https://linkedin.com" },
+                { text: "Instagram", href: "https://instagram.com" },
+                { text: "Telegram", href: "https://t.me" },
+                { text: "WhatsApp", href: "https://wa.me" }
+              ].map((social, index) => (
+                <li key={index} className="w-full touch-auto">
+                  <a
+                    href={social.href}
+                    className="block w-full py-2 touch-auto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span data-hover={social.text} className="block">{social.text}</span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -65,9 +85,20 @@ const Footer = ( ) => {
             <h3 className="font-medium text-lg mb-4">Resources</h3>
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
             <ul className="space-y-2 font-light cl-effect-5">
-              <li><Link href="https://pillarstack.com"><span data-hover="Pillarstack">Pillarstack</span></Link></li>
-              <li><Link href="/FloatingImage"><span data-hover="Figma Templates">Figma Templates</span></Link></li>
-              <li><Link href="/newsletter"><span data-hover="Monthly Newsletter">Monthly Newsletter</span></Link></li>
+              {[
+                { text: "Pillarstack", href: "https://pillarstack.com" },
+                { text: "Figma Templates", href: "/FloatingImage" },
+                { text: "Monthly Newsletter", href: "/newsletter" }
+              ].map((resource, index) => (
+                <li key={index} className="w-full touch-auto">
+                  <a
+                    href={resource.href}
+                    className="block w-full py-2 touch-auto"
+                  >
+                    <span data-hover={resource.text} className="block">{resource.text}</span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -75,9 +106,20 @@ const Footer = ( ) => {
             <h3 className="font-medium mt-6 text-lg mb-4">Resources</h3>
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
             <ul className="space-y-2 cl-effect-5">
-              <li><Link href="https://pillarstack.com"><span data-hover="Pillarstack">Pillarstack</span></Link></li>
-              <li><Link href="https://figma.com/templates"><span data-hover="Figma Templates">Figma Templates</span></Link></li>
-              <li><Link href="/newsletter"><span data-hover="Monthly Newsletter">Monthly Newsletter</span></Link></li>
+              {[
+                { text: "Pillarstack", href: "https://pillarstack.com" },
+                { text: "Figma Templates", href: "/FloatingImage" },
+                { text: "Monthly Newsletter", href: "/newsletter" }
+              ].map((resource, index) => (
+                <li key={index} className="w-full touch-auto">
+                  <a
+                    href={resource.href}
+                    className="block w-full py-2 touch-auto"
+                  >
+                    <span data-hover={resource.text} className="block">{resource.text}</span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 

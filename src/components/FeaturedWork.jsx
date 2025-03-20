@@ -135,7 +135,7 @@ const FeaturedWork = () => {
 
   return (
     <section className="min-h-screen z-[10000] " ref={sectionRef}>
-      <div className="max-w-[95%] mx-auto px-4 md:px-6">
+      <div className="max-w-[95%] mx-auto px-4 pt-1 md:px-6">
         <SectionHeading 
           title="Featured Work / "
           description="A SELECTION OF OUR MOST PASSIONATELY CRAFTED WORKS WITH FORWARD-THINKING CLIENTS AND FRIENDS OVER THE YEARS."

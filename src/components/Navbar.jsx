@@ -5,6 +5,8 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
 import Magnetic from "@/common/Magentic";
 import Link from "next/link";
+import Nav from "@/Nav";
+import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -180,6 +182,11 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
+              <Link href="#works" onClick={(e) => scrollToSection('works', e)}>
+                <span data-hover="PlayGround">PlayGround</span>,
+              </Link>
+            </li>
+            <li>
               <Link href="#contact" onClick={(e) => scrollToSection('contact', e)}>
                 <span data-hover="Contact">Contact</span>
               </Link>
@@ -237,85 +244,11 @@ export default function Navbar() {
       </Link>
 
           
-      <div className="w-full   md:w-[600px] h-[500px]  fixed right-0 z-[90]">
-        <motion.div
-          variants={menuVariants}
-          initial="initial"
-          animate={menuIsActive ? "animate" : "exit"}
-          className={`fixed right-0 bg-[#1C1C1C] z-[90] w-full md:w-[600px] overflow-hidden h-[500px] rounded-b-3xl ${
-            menuIsActive ? "pointer-events-auto" : "pointer-events-none"
-          }`}
-        >
-          <div className="absolute bottom-6 right-8 text-sm text-right">
-            <p>Located in India</p>
-            <p>
-              {new Date().toLocaleDateString("en-US", {
-                weekday: "short",
-                month: "short",
-                day: "2-digit",
-                year: "numeric",
-              })}
-            </p>
-            <p>
-              {new Date().toLocaleTimeString("en-US", {
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: false,
-              })}
-            </p>
-          </div>
-          <div className="absolute bottom-[-100px] left-[-100px] text-sm  mt-[5%]  w-[300px] h-[300px] bg-[#3A3834] bg-opacity-20 rounded-full">
+      <AnimatePresence mode="wait">
 
-          </div>
-        </motion.div>
-        <motion.div
-          variants={menuVariant1}
-          initial="initial"
-          animate={menuIsActive ? "animate" : "exit"}
-          className="h-[400px] w-full md:w-[700px] relative z-[100] bg-[#3A3834] shadow-2xl  rounded-b-3xl flex flex-col justify-center px-14 py-20"
-        >
-          {/* Navigation Links */}
-          <div className="flex flex-col items-center justify-center md:justify-start font-extrabold font-space-mono text-3xl lg:text-5xl md:flex-row md:space-x-4 mt-[100px] z-[120] mb-20">
-            {[
-              { text: "HOME", id: "home" },
-              { text: "ABOUT", id: "about" },
-              { text: "WORK", id: "works" },
-            ].map((link, index) => (
-              <div key={index} className="relative">
-                <Link
-                  href={`#${link.id}`}
-                  onClick={(e) => scrollToSection(link.id, e)}
-                  className="relative text-white hover:text-gray-400"
-                >
-                  {link.text}
-                </Link>
-              </div>
-            ))}
-          </div>
+           {menuIsActive && <Nav />}
 
-          {/* Social Links */}
-          <div className="text-white">
-            <p className="text-gray-400 mb-4 text-center md:text-left">
-              Socials
-            </p>
-            <div className="flex justify-center md:justify-start text-md space-x-6 md:text-xl">
-              {["Linkedin", "Telegram", "WhatsApp", "Instagram"].map(
-                (social, index) => (
-                  <Magnetic key={index}>
-                    <Link
-                      href="#"
-                      className="relative hover-underline-animation"
-                    >
-                      {social}
-                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 hover:w-full"></span>
-                    </Link>
-                  </Magnetic>
-                )
-              )}
-            </div>
-          </div>
-        </motion.div>
-      </div>
+       </AnimatePresence>
 
       
     </>
