@@ -88,7 +88,7 @@ export default function AboutSvg() {
   }, []);
 
   return (
-    <div ref={svgRef} className="w-full bg-[#0E0E0E] about-section rounded-b-3xl relative font-neue ">
+    <div ref={svgRef} className="w-full bg-[#0C0C0B]  about-section rounded-b-3xl relative font-neue ">
       <svg
         width="1937"
         height="1446"

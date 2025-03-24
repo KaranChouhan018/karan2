@@ -182,7 +182,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="#Testimonials" onClick={(e) => scrollToSection('Testimonal', e)}>
+              <Link href="#Testimonials" onClick={(e) => scrollToSection('Testimonals', e)}>
                 <span data-hover="Testimonials">Testimonials</span>,
               </Link>
             </li>

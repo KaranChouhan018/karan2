@@ -66,7 +66,7 @@ export default function Home() {
             <AboutSvg />
             </div>
 
-            <div id="Testimonials">
+            <div id="about">
               <Testimonial />
             </div>
 
