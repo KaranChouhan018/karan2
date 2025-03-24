@@ -53,7 +53,7 @@ const CtaSection = () => {
   }, []);
 
   return (
-    <div className="relative max-w-[95%] mx-auto px-4 md:px-6 bg-[#0C0C0B] rounded-lg text-white min-h-screen flex flex-col justify-center items-center p-4 sm:p-6">
+    <div className="relative  max-w-[90%] md:max-w-[95%] mx-auto px-4 md:px-6 bg-[#0C0C0B] rounded-lg text-white min-h-screen flex flex-col justify-center items-center p-4 sm:p-6">
       {/* Small text at the top */}
       <p className="text-md font-mono text-[#3A3733] mb-4 sm:mb-6">
         (Need an unfair advantage?) 

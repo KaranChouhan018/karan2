@@ -102,7 +102,7 @@ export default function Services() {
   return (
     <div ref={containerRef} className="relative min-h-screen">
       
-      <section className="relative mt-[5rem]">
+      <section className="relative mt-[5rem]  bg-[#0C0C0B] rounded-3xl about-section  border-rounded-t-3xl ">
         {/* Header Section - Static */}
         <div className="py-16 max-w-[93%] mx-auto">
           <h1 

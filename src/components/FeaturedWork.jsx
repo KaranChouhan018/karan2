@@ -134,7 +134,7 @@ const FeaturedWork = () => {
   }, []);
 
   return (
-    <section className="min-h-screen z-[10000] " ref={sectionRef}>
+    <section className="min-h-screen about-section bg-[#0C0C0B] z-[10000] " ref={sectionRef}>
       <div className="max-w-[95%] mx-auto px-4 pt-1 md:px-6">
         <SectionHeading 
           title="Featured Work / "

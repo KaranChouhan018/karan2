@@ -15,7 +15,7 @@
       body {
         background-image: url('/images/noise.png');
         font-family: 'spaceMono', monospace;
-        background-color: #0C0C0B;
+        background-color: #E5E5E0;
         color: #CDCDC3 ;
         overflow-x: hidden;
       }
@@ -102,6 +102,10 @@
     perspective: 1000px;
     background-image: url('/images/noise.png');
   
+  }
+
+  .about-section{
+    background-image: url('/images/noise.png');
   }
   
   .service-panel > * {

@@ -155,16 +155,16 @@ export default function Navbar() {
         
           <div className="flex flex-col md:flex-row items-start md:gap-16 justify-between md:items-center">
             <div>
-              <h1 className="font-bold text-md md:text-xl">CodeByKaran <sup>©</sup></h1>
+              <h1 className="font-bold text-md text-black md:text-xl">CodeByKaran <sup>©</sup></h1>
             </div>
             <div>
-              <h1 className="text-sm font-mono ">(Website Designer & Developer)</h1>
+              <h1 className="text-sm text-[#6A645C] font-mono ">(Website Designer & Developer)</h1>
             </div>
           </div>
     
 
         <div className="flex items-center">
-          <ul ref={navRef} className="flex flex-col pt-2 md:pt-0 md:flex-row font-light cl-effect-5">
+          <ul ref={navRef} className="flex flex-col text-[#6A645C] pt-2 md:pt-0 md:flex-row font-light cl-effect-5">
            
             <li>
               <Link href="#about" onClick={(e) => scrollToSection('about', e)}>
@@ -181,11 +181,7 @@ export default function Navbar() {
                 <span data-hover="Works">Works</span>,
               </Link>
             </li>
-            <li>
-              <Link href="#works" onClick={(e) => scrollToSection('works', e)}>
-                <span data-hover="PlayGround">PlayGround</span>,
-              </Link>
-            </li>
+            
             <li>
               <Link href="#contact" onClick={(e) => scrollToSection('contact', e)}>
                 <span data-hover="Contact">Contact</span>
@@ -220,7 +216,7 @@ export default function Navbar() {
 
           <Link
           ref={bookRef}
-        className="group scale-0 pointer-events-auto fixed top-10 right-20 lg:right-26 flex px-6 py-3.5 md:py-4.5 md:px-8 transform-none items-center justify-center overflow-hidden rounded-full bg-[#3A3733] font-bold uppercase tracking-base  px-space-lg py-space-sm z-[100] "
+        className="group scale-0 pointer-events-auto fixed top-10 right-22 lg:right-26 flex px-6 py-3.5 md:py-4.5 md:px-8 transform-none items-center justify-center overflow-hidden rounded-full bg-[#3A3733] font-bold uppercase tracking-base  px-space-lg py-space-sm z-[100] "
         path="/"
         href='https://cal.com/karan-chouhan-2jvqjy/15min'
       >

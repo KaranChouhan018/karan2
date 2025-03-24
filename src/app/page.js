@@ -11,6 +11,7 @@ import About from "@/components/About";
 import FeaturedWork from "@/components/FeaturedWork";
 import AboutSvg from "@/components/AboutSvg";
 import CtaSection from "@/components/CtaSection"; 
+import Testimonial from "@/components/Testimonial";
 import Footer from "@/components/Footer";
 import { EffectComposer } from "@react-three/postprocessing";
 
@@ -63,6 +64,10 @@ export default function Home() {
 
             <div id="about">
             <AboutSvg />
+            </div>
+
+            <div id="Testimonial">
+              <Testimonial />
             </div>
 
             <div id="contact">

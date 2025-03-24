@@ -44,11 +44,11 @@ export default function index() {
                     </div>
                     <div>
                     <div>
-            <ul className="space-y-2 font-light cl-effect-5">
+            <ul className="space-y-1 font-light text-[#7A7875] cl-effect-5">
               {[
-                { text: "Home", id: "home" },
                 { text: "Services", id: "services" },
                 { text: "About", id: "about" },
+ 
                 { text: "Works", id: "works" },
                 { text: "Contact", id: "contact" }
               ].map((item, index) => (
