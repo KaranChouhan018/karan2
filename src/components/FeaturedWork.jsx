@@ -141,7 +141,7 @@ const FeaturedWork = () => {
           description="A SELECTION OF OUR MOST PASSIONATELY CRAFTED WORKS WITH FORWARD-THINKING CLIENTS AND FRIENDS OVER THE YEARS."
           headingRef={headingRef}
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-1  lg:grid-cols-2 gap-8">
           {WORKS.map(work => (
             <ProjectCard key={work.id} {...work} />
           ))}
@@ -268,7 +268,7 @@ const ProjectCard = React.memo(({ title, categories, image, centerImage, slug })
 ProjectCard.displayName = 'ProjectCard';
 
 const SectionHeading = ({ title, description, headingRef }) => (
-  <div className="flex flex-col items-end md:flex-row md:justify-between md:items-start mb-16 gap-4">
+  <div className="flex flex-col items-end md:flex-col lg:flex-row md:justify-between md:items-start mb-16 gap-4">
     <h1 
       ref={headingRef} 
       className="text-6xl md:text-8xl font-light overflow-hidden"

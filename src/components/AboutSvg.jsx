@@ -105,7 +105,7 @@ export default function AboutSvg() {
         />
       </svg>
 
-      <div className="absolute top-0 left-0 right-0 bottom-0  mt-[20%] md:mt-[5%] flex items-start justify-center ">
+      <div className="absolute top-0 left-0 right-0 bottom-0  mt-[20%] md:mt-[10%]  lg:mt-[5%] flex items-start justify-center ">
         <Link
           className="group pointer-events-auto relative flex px-10 md:px-20 py-6 md:py-8 transform-none items-center justify-center overflow-hidden rounded-full bg-[#3A3733] font-bold uppercase tracking-base  px-space-lg py-space-sm text-base"
           href={"/Projects"}
@@ -129,7 +129,7 @@ export default function AboutSvg() {
       <div className="flex w-full md:flex-row flex-col px-6  md:px-16 items-start justify-between absolute top-[15%]  md:top-[20%]">
         <div>
           <svg
-            className="w-24 h-24 rotate-90 hidden md:block"
+            className="w-24 h-24 rotate-90 hidden md:hidden lg:block"
             viewBox="0 0 24 24"
             fill="none"
           >
@@ -142,7 +142,7 @@ export default function AboutSvg() {
             />
           </svg>
         </div>
-        <div className="w-full md:w-[60%] text-6xl overflow-hidden md:text-5xl lg:text-9xl font-bold">
+        <div className="w-full lg:w-[60%] text-6xl overflow-hidden md:text-8xl lg:text-9xl font-bold">
           <h1>DESIGNER</h1>
           <h1>DEVELOPER,</h1>
           <h1>CREATOR /</h1>
@@ -168,7 +168,7 @@ export default function AboutSvg() {
           <div className="max-w-lg">
             {/* Main intro */}
             <div className="mb-16">
-              <h1 ref={headingRef}  className="text-xl overflow-hidden md:text-2xl text-[#D0D0C6] font-light leading-relaxed">
+              <h1 ref={headingRef}  className="text-xl overflow-hidden md:text-xl text-[#D0D0C6] font-light leading-relaxed">
                  With a passion for design and development, I take projects from
                 ideation to launch, ensuring a seamless journey that leaves a
                 lasting positive impact on the digital landscape and your
@@ -179,13 +179,13 @@ export default function AboutSvg() {
             {/* About section */}
             <div className="mb-12 ">
               <h2 className="text-[#D0D0C6] text-sm mb-4">(ABOUT ME)</h2>
-              <p className="text-[#7A7875] text-md  mb-6">
+              <p className="text-[#7A7875] text-md md:text-sm  md:text-md mb-6">
                 Creating great web experiences is my primary focus. I ensure
                 each project leaves users with a feel-good sensation through
                 meticulous attention to detail and user-centric design
                 principles.
               </p>
-              <p className="text-[#7A7875] text-md">
+              <p className="text-[#7A7875] text-md md:text-sm lg:text-md">
                 When I&apos;m not immersed in web development and design, you can
                 find me sharing insights about my freelance journey on YouTube,
                 bouldering, playing music, or tending to my cherished
