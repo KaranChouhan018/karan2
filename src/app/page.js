@@ -44,11 +44,14 @@ export default function Home() {
 
   return (
     <>
+    
       <main className="w-screen overflow-x-hidden" ref={mainRef}>
         <AnimatePresence mode="wait">
           {isLoading && <Preloader />}
         </AnimatePresence>
    
+
+  
             
         <div className="w-full h-screen overflow-x-clip" id="home">
               <Scene />
@@ -66,13 +69,14 @@ export default function Home() {
             <AboutSvg />
             </div>
 
-            <div id="about">
+            <div id="testimonials">
               <Testimonial />
             </div>
 
             <div id="contact">
               <CtaSection />
             </div>
+            
             <Footer />
       </main>
 

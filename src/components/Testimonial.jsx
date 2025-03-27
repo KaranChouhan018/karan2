@@ -246,7 +246,7 @@ export default function Testimonials() {
                 </React.Fragment>
               ))}
             </h1>
-            <p className="mt-6 text-gray-700">
+            <p className="mt-6 text-[#6A645C] ">
               <span className="font-medium text-black">{current.name}</span>{" "}
               <br />
               {current.role} @{current.company}
@@ -257,7 +257,7 @@ export default function Testimonials() {
               {current.tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 text-xs border border-gray-400 rounded-full text-gray-700"
+                  className="px-3 py-1 text-xs border border-[#7A7875] rounded-full text-[#6A645C] "
                 >
                   {tag}
                 </span>
@@ -278,7 +278,7 @@ export default function Testimonials() {
         </div>
 
         {/* Bottom Navigation */}
-        <div className="absolute bottom-[6%] flex items-center justify-between w-[50%] px-16 text-gray-700 lg:opacity-100 md:opacity-0 opacity-0  ">
+        <div className="absolute bottom-[6%] flex items-center justify-between w-[50%] px-16 text-[#7A7875] lg:opacity-100 md:opacity-0 opacity-0  ">
           <div className="text-sm">
             {currentTestimonial + 1} <span className="mx-2">——</span>{" "}
             {testimonials.length}
@@ -286,13 +286,13 @@ export default function Testimonials() {
           <div className="flex gap-4">
             <button
               onClick={handlePrev}
-              className="px-4 py-2 bg-black text-white rounded-3xl"
+              className="px-4 py-2 bg-[#3A3733] text-white rounded-3xl"
             >
               PREV
             </button>
             <button
               onClick={handleNext}
-              className="px-4 py-2 bg-black text-white rounded-3xl"
+              className="px-4 py-2 bg-[#3A3733] text-white rounded-3xl"
             >
               NEXT
             </button>

@@ -1,10 +1,10 @@
 .menu{
     height: 100vh;
-    background-color: rgb(41, 41, 41);
+    background-color: #3B3834;
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 2;
+    z-index: 99;
     color: white;
 
     .body{
@@ -15,6 +15,7 @@
         flex-direction: column;
         justify-content: space-between;
     
+    
 
         .nav{
             display: flex;
@@ -22,7 +23,7 @@
             font-size: 56px;
             gap: 12px;
           
-            margin-top: 80px;
+            margin-top: 40px;
 
             .header{
                 color: rgb(153, 153, 153);
@@ -34,7 +35,7 @@
 
             a{
                 text-decoration: none;
-                color: white;
+                font-size: 50px;
                 font-weight: 300;
             }
             

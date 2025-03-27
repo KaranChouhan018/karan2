@@ -73,8 +73,8 @@ export default function SceneText() {
   return (
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2   text-center w-full leading-tight">
       <div className=' overflow-hidden' ref={textRef}>
-      <h1  className="md:pr-[15%]  text-4xl  text-[#161614]  md:text-5xl lg:text-6xl font-black font-space">HI THERE, I&apos;M</h1> <br/>
-          <h1 className="md:pl-[15%] text-4xl text-[#161614] md:text-5xl lg:text-6xl font-black font-space">KARAN CHOUHAN.</h1> <br/>
+      <h1  className="md:pr-[15%]  text-4xl  text-[#161614]  md:text-5xl lg:text-6xl font-black font-neue">HI THERE, I&apos;M</h1> <br/>
+          <h1 className="md:pl-[15%] text-4xl text-[#161614] md:text-5xl lg:text-6xl font-black font-neue">KARAN CHOUHAN.</h1> <br/>
           
       </div>
       <div className='overflow-hidden mt-[10%] w-[95%] mx-auto text-center md:mt-[4%]' ref={freeRef}>
