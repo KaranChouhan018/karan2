@@ -212,7 +212,7 @@ export default function Testimonials() {
 
   return (
     <section className="relative w-full">
-      <div className="py-16 max-w-[93%] mx-auto">
+      <div className="py-16 max-w-[95%] mx-auto">
         <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold overflow-hidden w-full text-black mb-8">
           DON'T TAKE MY WORD FOR IT /
         </h1>

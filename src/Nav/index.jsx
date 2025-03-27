@@ -1,66 +1,64 @@
-import React, { useState } from "react";
-import styles from "./style.module.scss";
+import React from "react";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { menuSlide } from "./anim";
 import Link from "next/link";
+import { menuSlide } from "./anim";
+import styles from "./style.module.scss";
 
 
-export default function index() {
-  const pathname = usePathname();
-  const [selectedIndicator, setSelectedIndicator] = useState(pathname);
+export default function Nav({ onClose, scrollToSection }) {
+  const navigationItems = [
+    { text: "Services", id: "service" },
+    { text: "About", id: "about" },
+    { text: "Testimonials", id: "testimonials" },
+    { text: "Works", id: "works" },
+    { text: "Contact", id: "contact" },
+  ];
 
   return (
     <motion.div
-      variants={menuSlide}
-      initial="initial"
-      animate="enter"
-      exit="exit"
+    variants={menuSlide}
+      initial = 'initial'
+      animate='enter'
+      exit= 'exit'
       className={styles.menu}
     >
       <div className={styles.body}>
-        <div
-          onMouseLeave={() => {
-            setSelectedIndicator(pathname);
-          }}
-          className={styles.nav}
-        >
-          <div className={styles.header}>
-            <p>Navigation</p>
-          </div>
-          <div>
-            <div>
-              <ul className=" font-light cl-effect-5">
-                {[
-                  { text: "Services", id: "services" },
-                  { text: "About", id: "about" },
-                  { text: "Testimonials", id: "testimonials" },
-                  { text: "Works", id: "works" },
-                  { text: "Contact", id: "contact" },
-                ].map((item, index) => (
-                  <li key={index} className="w-full touch-auto">
-                    <a
-                      href={`#${item.id}`}
-                      onClick={(e) => scrollToSection(item.id, e)}
-                      className="block w-full touch-auto"
-                    >
-                      <span data-hover={item.text} className="block">
-                        {item.text}
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className={styles.footer}>
-          <h1 className="font-bold">Email Address</h1>
-          <p className=" text-[#999999] cl-effect-5">codebykaran@gmail.com</p>
+        <div className={styles.nav}>
 
-          <div className="flex mt-8 space-x-2 ">
-            <div>
-              <Link
+          <div className="w-[400px] h-[400px] about-section rounded-full bg-amber-50 absolute top-[-200px] right-[-100px]">
+
+          </div>
+          <div className="w-[400px] h-[400px] about-section rounded-full bg-[#E5E5E0] absolute top-[-200px] right-[-200px]">
+
+          </div>
+
+        
+        <div className={styles.header}>
+          <p className="text-md  mt-10 font-light">Navigation</p>
+        </div>
+        <ul className="space-y-0">
+          {navigationItems.map((item, index) => (
+            <li key={index}>
+              <a
+                href={`#${item.id}`}
+                onClick={(e) => {
+                  scrollToSection(item.id, e);
+                  onClose();
+                }}
+                className=" font-light  transition-colors duration-300"
+              >
+                {item.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-10 space-y-4">
+          <h2 className="text-xl  font-bold">Email Address</h2>
+          <ul className="space-y-2 text-[20px] font-light text-[#C4C4BB] cl-effect-5">
+              <li><Link href=""><span data-hover="codebykaran@gmail.com">codebykaran@gmail.com</span></Link></li>
+          </ul>
+          <div className="flex flex-row justify-start space-x-2 mt-10">
+          <Link
                 className="group pointer-events-auto relative flex px-4 py-2 transform-none items-center justify-center overflow-hidden rounded-full border border-[#8C8C73] tracking-base  px-space-lg py-space-sm text-base"
                 path="/"
                 href="https://cal.com/karan-chouhan-2jvqjy/15min"
@@ -83,8 +81,7 @@ export default function index() {
                   </span>
                 </span>
               </Link>
-            </div>
-            <div>
+           
               <Link
                 className="group pointer-events-auto relative flex px-4 py-2 transform-none items-center justify-center overflow-hidden rounded-full border border-[#8C8C73]    tracking-base  px-space-lg py-space-sm text-base"
                 path="/"
@@ -108,8 +105,7 @@ export default function index() {
                   </span>
                 </span>
               </Link>
-            </div>
-            <div>
+          
               <Link
                 className="group pointer-events-auto relative flex px-4 py-2 transform-none items-center justify-center overflow-hidden rounded-full border border-[#8C8C73] tracking-base  px-space-lg py-space-sm text-base"
                 path="/"
@@ -133,8 +129,8 @@ export default function index() {
                   </span>
                 </span>
               </Link>
-            </div>
           </div>
+        </div>
         </div>
       </div>
     </motion.div>

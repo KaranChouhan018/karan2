@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
-import Nav from "@/Nav";
+import Nav from "@/Nav/index";
 import { AnimatePresence } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -15,22 +15,20 @@ export default function Navbar() {
   const bookRef = useRef(null);
   const [menuIsActive, setMenuIsActive] = useState(false);
 
-  // Prevent scrolling when menu is active
   useEffect(() => {
-    if (menuIsActive) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    // Initial navbar setup
+    gsap.set(menuRef.current, { 
+      y: -100,
+      opacity: 0 
+    });
 
-    // Cleanup function to reset overflow when component unmounts
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [menuIsActive]);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    // Animate navbar in
+    gsap.to(menuRef.current, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      delay: 0.5
+    });
 
     // Navbar scroll animation
     gsap.to(menuRef.current, {
@@ -39,7 +37,6 @@ export default function Navbar() {
         start: "top top",
         end: "100 top",
         onUpdate: (self) => {
-          // Hide navbar when scrolling down, show when scrolling up
           if (self.direction === 1) {
             gsap.to(menuRef.current, {
               y: 0,
@@ -61,7 +58,7 @@ export default function Navbar() {
 
     // Hamburger button animation
     gsap.set(hamburgerRef.current, { 
-      scale: 0,
+      scale: 0
     });
 
     gsap.to(hamburgerRef.current, {
@@ -109,40 +106,29 @@ export default function Navbar() {
     });
 
     return () => {
-      // Cleanup
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
 
-  // Scroll to section and close menu
-  const scrollToSection = (sectionId) => {
-    // Close menu
-    setMenuIsActive(false);
-
-    // Find the target section
+  const scrollToSection = (sectionId, e) => {
+    e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
-      // Calculate scroll position with offset
-      const offset = 100; // Adjust this value based on your navbar height
+      const offset = 100;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-      // Smooth scroll to section
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth"
       });
     }
+    
+    // Close menu if it's open
+    if (menuIsActive) {
+      setMenuIsActive(false);
+    }
   };
-
-  // Menu items with their corresponding section IDs
-  const menuItems = [
-    { label: 'Services', sectionId: 'service' },
-    { label: 'About', sectionId: 'about' },
-    { label: 'Works', sectionId: 'works' },
-    { label: 'Testimonials', sectionId: 'testimonials' },
-    { label: 'Contact', sectionId: 'contact' }
-  ];
 
   return (
     <>
@@ -150,7 +136,6 @@ export default function Navbar() {
         ref={menuRef} 
         className="w-screen fixed top-0 flex justify-between px-5 py-1 md:py-10 z-[100] md:px-10 items-center"
       >
-        {/* Logo Section */}
         <div className="flex flex-col md:flex-row items-start md:gap-16 justify-between md:items-center">
           <div>
             <h1 className="font-bold text-md text-black md:text-xl">CodeByKaran <sup>©</sup></h1>
@@ -161,27 +146,40 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center">
-          <ul ref={navRef} className="flex flex-col text-[#6A645C] pt-2 md:pt-0 md:flex-row font-light cl-effect-5">
-            {menuItems.map((item, index) => (
-              <li key={item.sectionId}>
-                <button 
-                  onClick={() => scrollToSection(item.sectionId)}
-                  className="cursor-pointer"
-                >
-                  <span data-hover={item.label}>{item.label}</span>
-                  {index < menuItems.length - 1 ? ',' : ''}
-                </button>
-              </li>
-            ))}
+          <ul ref={navRef} className=" md:flex flex-col text-[#6A645C] pt-2 md:pt-0 md:flex-row font-light cl-effect-5">
+            <li className="">
+              <Link href="#service" onClick={(e) => scrollToSection('service', e)}>
+                <span data-hover="Services">Services</span>,
+              </Link>
+            </li>
+            <li className="">
+              <Link href="#about" onClick={(e) => scrollToSection('about', e)}>
+                <span data-hover="About">About</span>,
+              </Link>
+            </li>
+            <li className="">
+              <Link href="#works" onClick={(e) => scrollToSection('works', e)}>
+                <span data-hover="Works">Works</span>,
+              </Link>
+            </li>
+            <li className="">
+              <Link href="#testimonials" onClick={(e) => scrollToSection('testimonials', e)}>
+                <span data-hover="Testimonials">Testimonials</span>,
+              </Link>
+            </li>
+            <li className="">
+              <Link href="#contact" onClick={(e) => scrollToSection('contact', e)}>
+                <span data-hover="Contact">Contact</span>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
 
-      {/* Hamburger Menu Button */}
       <div
         ref={hamburgerRef}
         onClick={() => setMenuIsActive(!menuIsActive)}
-        className="fixed top-10 right-6 lg:right-10 flex bg-[#CDCDC3] overflow-hidden items-center justify-center w-[55px] h-[55px] md:w-[60px] md:h-[60px] rounded-full  cursor-pointer z-[100]"
+        className="fixed top-10 right-6 lg:right-10 flex bg-[#CDCDC3] overflow-hidden items-center justify-center w-[55px] h-[55px] md:w-[60px] md:h-[60px] rounded-full before:absolute before:inset-0 before:translate-y-full before:rounded-full before:bg-[#3A3733] before:transition-all before:duration-[400ms] before:ease-in-out hover:before:translate-y-0 after:absolute after:inset-0 after:translate-y-full after:rounded-full after:bg-[#8C8C73] after:transition-all after:duration-[600ms] after:ease-in-out hover:after:translate-y-0 cursor-pointer z-[100]"
       >
         <div className="relative flex flex-col z-40 justify-between h-[14px] w-[32px]">
           <span
@@ -197,11 +195,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Book a Call Button */}
       <Link
         ref={bookRef}
         className="group scale-0 pointer-events-auto fixed top-10 right-22 lg:right-26 flex px-6 py-3.5 md:py-4.5 md:px-8 transform-none items-center justify-center overflow-hidden rounded-full bg-[#3A3733] font-bold uppercase tracking-base px-space-lg py-space-sm z-[100]"
         href='https://cal.com/karan-chouhan-2jvqjy/15min'
+        target="_blank"
       >
         <span className="absolute inset-0 z-10 block overflow-hidden">
           <span className="block h-full w-full translate-y-full rounded-t-[15rem] bg-[#8C8C73] transition-all duration-500 ease-expo sm:group-hover:translate-y-0 sm:group-hover:rounded-none"></span>
@@ -218,9 +216,13 @@ export default function Navbar() {
         </span>
       </Link>
 
-      {/* Navigation Menu */}
       <AnimatePresence mode="wait">
-        {menuIsActive && <Nav />}
+        {menuIsActive && (
+          <Nav 
+            onClose={() => setMenuIsActive(false)} 
+            scrollToSection={scrollToSection} 
+          />
+        )}
       </AnimatePresence>
     </>
   );

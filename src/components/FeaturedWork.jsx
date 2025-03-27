@@ -37,7 +37,7 @@ const WORKS = [
   },
   {
     id: 4,
-    title: 'Porsche: Dream Machine',
+    title: 'LukeFrame : Web Agency',
     categories: ['CONCEPT •', '3D  •', 'MOGRAPH •', 'VIDEO '],
     image: '/images/floating_4.jpg',
     centerImage: '/p4.png',
@@ -45,19 +45,19 @@ const WORKS = [
   },
   {
     id: 5,
-    title: 'Ingenio : Synthetic Human',
+    title: 'Ingenio : Design Studio',
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D '],
     image: '/images/floating_5.jpg',
     centerImage: '/p7.png',
-    slug: 'synthetic-human'
+    slug: 'https://ingenio-website.vercel.app/'
   },
   {
     id: 6,
-    title: 'Porsche: Dream Machine',
-    categories: ['CONCEPT •', '3D  •', 'MOGRAPH •', 'VIDEO '],
+    title: 'Thorny: Digital Agency',
+    categories: ['WEB •',  'DESIGN •', 'DEVELOPMENT •', '3D '],
     image: '/images/floating_6.jpg',
-    centerImage: '/p6.png',
-    slug: 'porsche-dream-machine'
+    centerImage: '/p8.png',
+    slug: 'https://thorny-website.vercel.app/'
   }
 ];
 
@@ -219,7 +219,12 @@ const ProjectCard = React.memo(({ title, categories, image, centerImage, slug })
   }, [categories]);
 
   return (
-    <Link href={`/projects/${slug}`} className="group block overflow-hidden grid_item">
+    <a 
+      href={slug}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block overflow-hidden grid_item"
+    >
       <div className="aspect-[4/3] rounded-3xl relative overflow-hidden">
         <DistortionImage
           ref={imageRef}
@@ -260,7 +265,7 @@ const ProjectCard = React.memo(({ title, categories, image, centerImage, slug })
           </h2>
         </div>
       </div>
-    </Link>
+    </a>
   );
 });
 

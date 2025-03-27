@@ -34,12 +34,13 @@ const Footer = ( ) => {
           <div>
             <h3 className="font-medium text-lg mb-4">Menu</h3>
             <div className="h-px w-full bg-[#6D665E] bg-opacity-50 mb-4"></div>
-            <ul className="space-y-2 font-light cl-effect-5">
+            <ul className="space-y-1 font-light cl-effect-5">
               {[
                 { text: "Home", id: "home" },
                 { text: "Services", id: "services" },
                 { text: "About", id: "about" },
                 { text: "Works", id: "works" },
+                { text: "Testimonials", id: "testimonials" },
                 { text: "Contact", id: "contact" }
               ].map((item, index) => (
                 <li key={index} className="w-full touch-auto">
@@ -59,7 +60,7 @@ const Footer = ( ) => {
           <div>
             <h3 className="font-medium text-lg font-space-mono mb-4">Socials</h3>
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
-            <ul className="space-y-2 font-light cl-effect-5">
+            <ul className="space-y-1 font-light cl-effect-5">
               {[
                 { text: "LinkedIn", href: "https://linkedin.com" },
                 { text: "Instagram", href: "https://instagram.com" },
@@ -84,7 +85,7 @@ const Footer = ( ) => {
           <div className='hidden md:block'>
             <h3 className="font-medium text-lg mb-4">Resources</h3>
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
-            <ul className="space-y-2 font-light cl-effect-5">
+            <ul className="space-y-1 font-light cl-effect-5">
               {[
                 { text: "Pillarstack", href: "https://pillarstack.com" },
                 { text: "Figma Templates", href: "/FloatingImage" },
