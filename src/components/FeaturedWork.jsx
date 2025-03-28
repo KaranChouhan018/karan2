@@ -48,7 +48,7 @@ const WORKS = [
     title: 'Ingenio : Design Studio',
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D '],
     image: '/images/floating_5.jpg',
-    centerImage: '/p7.png',
+    centerImage: '/p9.jpg',
     slug: 'https://ingenio-website.vercel.app/'
   },
   {
@@ -56,7 +56,7 @@ const WORKS = [
     title: 'Thorny: Digital Agency',
     categories: ['WEB •',  'DESIGN •', 'DEVELOPMENT •', '3D '],
     image: '/images/floating_6.jpg',
-    centerImage: '/p8.png',
+    centerImage: '/p10.jpg',
     slug: 'https://thorny-website.vercel.app/'
   }
 ];

@@ -154,7 +154,7 @@ export default function AboutSvg() {
         <div className="p-6 flex place-items-center">
           <div ref={imageRef} className="max-w-md mx-auto overflow-hidden">
             <Image 
-              src="/"
+              src="/profile.jpg"
               alt="Profile"
               className="w-full h-full grayscale"
               width={500}
