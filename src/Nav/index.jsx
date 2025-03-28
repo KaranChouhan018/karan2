@@ -57,7 +57,7 @@ export default function Nav({ onClose, scrollToSection }) {
           <ul className="space-y-2 text-[20px] font-light text-[#C4C4BB] cl-effect-5">
               <li><Link href=""><span data-hover="codebykaran@gmail.com">codebykaran@gmail.com</span></Link></li>
           </ul>
-          <div className="flex flex-row justify-start space-x-2 mt-10">
+          <div className="flex flex-row justify-start space-x-2 mt-10 cursor-pointer">
           <Link
                 className="group pointer-events-auto relative flex px-4 py-2 transform-none items-center justify-center overflow-hidden rounded-full border border-[#8C8C73] tracking-base  px-space-lg py-space-sm text-base"
                 path="/"

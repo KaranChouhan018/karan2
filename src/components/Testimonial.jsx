@@ -300,7 +300,7 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <div className="flex flex-row justify-between  text-[#7A7875]  p-6 rounded-lg w-full max-w-md mx-auto  md:hidden">
+      <div className="flex flex-row justify-between gap-3  text-[#7A7875]  p-6 rounded-lg w-full max-w-md mx-auto  md:hidden">
         <div className="text-5xl text-black">01</div>
 
         <div className="place-items-start">
@@ -328,7 +328,7 @@ export default function Testimonials() {
 
           {/* Tags */}
           <div className="flex space-x-2 mt-4">
-            {["WEB DESIGN", "WEB DEVELOPMENT", "SEO"].map((tag) => (
+            {["UI/UX", "WEB DEVELOPMENT", "SEO"].map((tag) => (
               <span
                 key={tag}
                 className="px-3 py-1 border border-[#7A7875]  text-xs font-semibold rounded-xl"
@@ -367,7 +367,7 @@ export default function Testimonials() {
 
           {/* Tags */}
           <div className="flex space-x-2 mt-4">
-            {["WEB DESIGN", "WEB DEVELOPMENT", "SEO"].map((tag) => (
+            {["WEB DESIGN", "WEB DEVELOPMENT"].map((tag) => (
               <span
                 key={tag}
                 className="px-3 py-1 text-xs border border-[#7A7875] font-semibold rounded-xl"

@@ -65,18 +65,16 @@
     }
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .menu {
-        padding: 1px; // Reduced padding for mobile
-    }
 
-    .nav {
-        font-size: 10px; // Smaller font size for mobile
-        margin-top: 20px; // Adjust margin for mobile
-    }
+@media screen and (max-width: 600px) {
+    .menu { 
+        width: 100vw;
+        .body {
+            padding: 50px;
 
-    .header {
-        font-size: 10px; // Smaller header font size for mobile
+            .nav {
+                font-size: 40px;
+            }
+        }
     }
-}
+}       

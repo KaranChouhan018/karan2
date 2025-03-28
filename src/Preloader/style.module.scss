@@ -7,6 +7,7 @@
     position: fixed;
     z-index: 999;
     background-color: #111111;
+    background-image: url('/images/noise.png');
     svg{
         position: absolute;
         top: 0;
@@ -14,6 +15,7 @@
         height: calc(100% + 300px);
         path{
             fill: #111111;
+            background-image: url('/images/noise.png');
         }
     }
     p{
