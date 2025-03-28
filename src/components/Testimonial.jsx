@@ -163,36 +163,26 @@ import Image from "next/image";
 const testimonials = [
   {
     id: 1,
-    quote: '"Huy is phenomenal. <br /> An absolute pleasure to work with!"',
+    quote: '"Karan is phenomenal. <br /> An absolute pleasure to work with!"',
     name: "Pieter Pattyn",
     role: "Founder's Associate",
-    company: "Volup",
+    company: "Thorny",
     tags: ["WEB DESIGN", "WEB DEVELOPMENT", "SEO"],
-    imageSrc: "/images/floating_2.jpg",
+    imageSrc: "/image1.jpg",
     imageAlt:
       "Smiling man with black t-shirt against a backdrop with a repeating 'V' pattern",
   },
   {
     id: 2,
     quote:
-      '"Working with Huy was a game-changing <br />  experience for our project."',
+      '"Working with Karan was a game-changing <br />  experience for our project."',
     name: "Sarah Johnson",
     role: "Product Manager",
     company: "TechInnovate",
     tags: ["UI/UX", "BRANDING", "PRODUCT STRATEGY"],
-    imageSrc: "/images/floating_6.jpg",
+    imageSrc: "/image2.jpg",
     imageAlt: "Sarah Johnson in a professional setting",
-  },
-  {
-    id: 3,
-    quote: '"Exceptional skills   <br /> and incredible attention to detail."',
-    name: "Michael Chen",
-    role: "Marketing Director",
-    company: "GlobalReach",
-    tags: ["DIGITAL MARKETING", "CONSULTING", "GROWTH"],
-    imageSrc: "/images/floating_3.jpg",
-    imageAlt: "Michael Chen discussing business strategy",
-  },
+  }
 ];
 
 export default function Testimonials() {
@@ -306,11 +296,11 @@ export default function Testimonials() {
         <div className="place-items-start">
           {/* Image */}
           <Image
-            src="/images/floating_3.jpg"
+            src="/image1.jpg"
             alt="Portrait of Pieter Pattyn smiling in front of a patterned background"
             width={300}
             height={250}
-            className="rounded-lg"
+            className="rounded-lg grayscale-100"
           />
 
           {/* Testimonial Text */}
@@ -345,11 +335,11 @@ export default function Testimonials() {
         <div className="place-items-start">
           {/* Image */}
           <Image
-            src="/images/floating_3.jpg"
+            src="/image2.jpg"
             alt="Portrait of Pieter Pattyn smiling in front of a patterned background"
             width={300}
             height={250}
-            className="rounded-lg"
+            className="rounded-lg grayscale-100"
           />
 
           {/* Testimonial Text */}

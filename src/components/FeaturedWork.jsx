@@ -17,7 +17,7 @@ const WORKS = [
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D'],
     image: '/images/floating_1.jpg',
     centerImage: '/p1.png',
-    slug: 'synthetic-human'
+    slug: 'https://frontend-v8zc.vercel.app/'
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const WORKS = [
     categories: ['CONCEPT •', '3D  •', 'MOGRAPH •', 'VIDEO'],
     image: '/images/floating_2.jpg',
     centerImage: '/p2.png',
-    slug: 'porsche-dream-machine='
+    slug: 'https://livedocs-lime.vercel.app/'
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const WORKS = [
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D'],
     image: '/images/floating_3.jpg',
     centerImage: '/p3.png',
-    slug: 'synthetic-human'
+    slug: 'https://www.niklasdesigns.com/'
   },
   {
     id: 4,

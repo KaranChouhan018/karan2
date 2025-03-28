@@ -37,7 +37,7 @@ const Footer = ( ) => {
             <ul className="space-y-1 font-light cl-effect-5">
               {[
                 { text: "Home", id: "home" },
-                { text: "Services", id: "services" },
+                { text: "Services", id: "service" },
                 { text: "About", id: "about" },
                 { text: "Works", id: "works" },
                 { text: "Testimonials", id: "testimonials" },

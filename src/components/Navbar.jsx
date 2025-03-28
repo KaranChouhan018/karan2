@@ -16,6 +16,8 @@ export default function Navbar() {
   const [menuIsActive, setMenuIsActive] = useState(false);
 
   useEffect(() => {
+
+    
     // Initial navbar setup
     gsap.set(menuRef.current, { 
       y: -100,
@@ -137,9 +139,9 @@ export default function Navbar() {
         className="w-screen fixed top-0 flex justify-between px-5 py-1 md:py-10 z-[100] md:px-10 items-center"
       >
         <div className="flex flex-col md:flex-row items-start md:gap-16 justify-between md:items-center">
-          <div>
+          <Link href="/">
             <h1 className="font-bold text-md text-black md:text-xl">CodeByKaran <sup>©</sup></h1>
-          </div>
+          </Link>
           <div>
             <h1 className="text-sm text-[#6A645C] font-mono">(Website Designer & Developer)</h1>
           </div>

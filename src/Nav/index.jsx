@@ -94,10 +94,10 @@ export default function Nav({ onClose, scrollToSection }) {
                   <span
                     after="Github"
                     className="block after:absolute after:left-0 after:block after:translate-y-0 after:transition-all after:duration-500 after:ease-expo after:content-[attr(after)] sm:group-hover:after:-translate-y-[100%]"
-                    href="https://cal.com/karan-chouhan-2jvqjy/15min"
+                    href="https://github.com/KaranChouhan018"
                   >
                     <span
-                      href="https://cal.com/karan-chouhan-2jvqjy/15min"
+                      href="https://github.com/KaranChouhan018"
                       className="flex transition-all duration-500 ease-expo sm:group-hover:-translate-y-full"
                     >
                       Github
