@@ -77,7 +77,7 @@ export default function SceneText() {
           <h1 className="md:pl-[15%] text-4xl text-[#161614] md:text-5xl lg:text-6xl font-black font-neue">KARAN CHOUHAN.</h1> <br/>
           
       </div>
-      <div className='overflow-hidden mt-[10%] w-[95%] mx-auto text-center md:mt-[4%]' ref={freeRef}>
+      <div className='overflow-hidden mt-[10%] w-[95%] mx-auto text-center md:mt-[8%] lg:mt-[5%]' ref={freeRef}>
         <h1 className='text-lg text-[#6A645C] md:text-2xl'>Freelance frontend developer & web designer</h1> 
         <h1 className='text-lg text-[#6A645C] md:text-2xl'>Based in India </h1>
       </div>

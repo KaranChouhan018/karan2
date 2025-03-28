@@ -62,10 +62,10 @@ const Footer = ( ) => {
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
             <ul className="space-y-1 font-light cl-effect-5">
               {[
-                { text: "LinkedIn", href: "https://linkedin.com" },
-                { text: "Instagram", href: "https://instagram.com" },
-                { text: "Telegram", href: "https://t.me" },
-                { text: "WhatsApp", href: "https://wa.me" }
+                { text: "LinkedIn", href: "https://www.linkedin.com/in/karan-chouhan-66528a248" },
+                { text: "Instagram", href: "https://www.instagram.com/_karxnwrites/" },
+                { text: "Fiverr", href: "https://www.fiverr.com/s/kL6x5dL" }, 
+                { text: "WhatsApp", href: "https://wa.me/+917898341464" }
               ].map((social, index) => (
                 <li key={index} className="w-full touch-auto">
                   <a
@@ -87,9 +87,9 @@ const Footer = ( ) => {
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
             <ul className="space-y-1 font-light cl-effect-5">
               {[
-                { text: "Pillarstack", href: "https://pillarstack.com" },
+                { text: "Awwwwards", href: "/" },
                 { text: "Figma Templates", href: "/FloatingImage" },
-                { text: "Monthly Newsletter", href: "/newsletter" }
+                { text: "Framer Templates", href: "/newsletter" }
               ].map((resource, index) => (
                 <li key={index} className="w-full touch-auto">
                   <a
@@ -108,9 +108,9 @@ const Footer = ( ) => {
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
             <ul className="space-y-2 cl-effect-5">
               {[
-                { text: "Pillarstack", href: "https://pillarstack.com" },
-                { text: "Figma Templates", href: "/FloatingImage" },
-                { text: "Monthly Newsletter", href: "/newsletter" }
+                  { text: "Awwwwards", href: "/" },
+                  { text: "Figma Templates", href: "/FloatingImage" },
+                  { text: "Framer Motion", href: "/newsletter" }
               ].map((resource, index) => (
                 <li key={index} className="w-full touch-auto">
                   <a

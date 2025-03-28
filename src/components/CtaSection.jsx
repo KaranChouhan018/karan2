@@ -123,7 +123,7 @@ const CtaSection = () => {
           <div className="flex items-center justify-center lg:justify-end ">
           <span className="mr-2 ">↳</span>
           <ul className="space-y-2 font-light text-[#C4C4BB] cl-effect-5">
-              <li><Link href=""><span data-hover="codebykaran@gmail.com">codebykaran@gmail.com</span></Link></li>
+              <li><Link href="mailto:codebykaran18@gmail.com"><span data-hover="codebykaran18@gmail.com">codebykaran18@gmail.com</span></Link></li>
           </ul>
           </div>
          

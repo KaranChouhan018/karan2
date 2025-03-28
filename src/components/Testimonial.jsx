@@ -20,10 +20,10 @@ const testimonials = [
     id: 2,
     quote:
       '"Working with Karan was a game-changing <br />  experience for our project."',
-    name: "Sarah Johnson",
-    role: "Product Manager",
-    company: "TechInnovate",
-    tags: ["UI/UX", "BRANDING", "PRODUCT STRATEGY"],
+    name: "Niklas Danler",
+    role: "Founder",
+    company: "Niklas Designs",
+    tags: ["UI/UX", "WEB DEVELOPMENT", "SEO"],
     imageSrc: "/image2.jpg",
     imageAlt: "Sarah Johnson in a professional setting",
   }
@@ -149,14 +149,14 @@ export default function Testimonials() {
 
           {/* Testimonial Text */}
           <p className="mt-6 text-xl  text-[#6A645C]  font-semibold leading-snug">
-            "Huy is phenomenal. An absolute <br /> pleasure to work with!"
+            "Karan is phenomenal. An absolute <br /> pleasure to work with!"
           </p>
 
           {/* Name & Role */}
           <div className="mt-4 items-start">
             <p className="text-lg font-semibold">Pieter Pattyn</p>
             <p className="text-sm text-textLight">
-              <span className="font-semibold">Founder’s Associate</span> @Volup
+              <span className="font-semibold">Founder’s Associate</span> @Thorny
             </p>
           </div>
 
@@ -188,14 +188,14 @@ export default function Testimonials() {
 
           {/* Testimonial Text */}
           <p className="mt-6 text-xl font-semibold  text-[#6A645C]  leading-snug">
-            "Huy is phenomenal. An absolute pleasure to work with!"
+            "Working with Karan was a game-changing experience for our project."
           </p>
 
           {/* Name & Role */}
           <div className="mt-4 items-start">
-            <p className="text-lg font-semibold">Pieter Pattyn</p>
+            <p className="text-lg font-semibold">Niklas Danler</p>
             <p className="text-sm text-textLight">
-              <span className="font-semibold">Founder’s Associate</span> @Volup
+              <span className="font-semibold">Founder’s</span> @NiklasDesigns
             </p>
           </div>
 

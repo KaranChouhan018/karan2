@@ -108,7 +108,7 @@ export default function Services() {
           <h1 
           ref={headerTitleRef}
           className="text-6xl md:text-7xl lg:text-8xl font-bold overflow-hidden text-[#D0D0C6] mb-8">
-            HOW I CAN HELP YOU /
+            HOW CAN I HELP YOU /
           </h1>
           
           <div className="flex flex-col  md:flex-row w-full md:w-[50%] md:mx-auto sm:gap-2 gap-8 mt-12">

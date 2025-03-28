@@ -18,19 +18,19 @@ export default function Navbar() {
   useEffect(() => {
 
     
-    // Initial navbar setup
-    gsap.set(menuRef.current, { 
-      y: -100,
-      opacity: 0 
-    });
+    // // Initial navbar setup
+    // gsap.set(menuRef.current, { 
+    //   y: -100,
+    //   opacity: 0 
+    // });
 
-    // Animate navbar in
-    gsap.to(menuRef.current, {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      delay: 0.5
-    });
+    // // Animate navbar in
+    // gsap.to(menuRef.current, {
+    //   y: 0,
+    //   opacity: 1,
+    //   duration: 1,
+    //   delay: 0.5
+    // });
 
     // Navbar scroll animation
     gsap.to(menuRef.current, {
