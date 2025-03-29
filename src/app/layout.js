@@ -19,7 +19,7 @@ const neue = localFont({
 
 // Enhanced metadata for better SEO
 export const metadata = {
-  title: "CodebyKaran - Front End Developer | React, Next.js Expert",
+  title: "CodebyKaran - Front End Developer",
   description: "Karan Chouhan, Freelance Front End Developer based in India. Specializing in responsive web design, React, and Next.js applications.",
   keywords: "front end developer, web developer, React developer, Next.js, India, freelance developer, Karan Chouhan",
   robots: "index, follow",
@@ -56,8 +56,9 @@ export default function RootLayout({ children }) {
     >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.png" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
         {/* Preconnect to any third-party domains you'll load resources from */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -88,7 +89,7 @@ export default function RootLayout({ children }) {
         <CustomCursor />
         <Navbar />
         <main>{children}</main>
-        <Footer />
+
       </body>
     </html>
   );

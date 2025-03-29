@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
 import Nav from "@/Nav/index";
 import { AnimatePresence } from "framer-motion";
+import Magnetic from "@/common/Magentic";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -122,7 +123,9 @@ export default function Navbar() {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
+        ease: "power3.out",
+        delay:1.5
       });
     }
     
@@ -142,9 +145,9 @@ export default function Navbar() {
           <Link href="/">
             <h1 className="font-bold text-md text-black md:text-xl">CodeByKaran <sup>©</sup></h1>
           </Link>
-          <div>
+          <Magnetic>
             <h1 className="text-sm text-[#6A645C] font-mono">(Website Designer & Developer)</h1>
-          </div>
+          </Magnetic>
         </div>
 
         <div className="flex items-center">

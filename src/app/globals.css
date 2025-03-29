@@ -18,6 +18,7 @@
         background-color: #E5E5E0;
         color: #CDCDC3 ;
         overflow-x: hidden;
+        scroll-behavior: smooth;
       }
     
       

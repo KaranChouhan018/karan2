@@ -1,14 +1,15 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
 import DistortionImage from './DistortionImage';
 
-
-gsap.registerPlugin(ScrollTrigger);
+// Register GSAP plugins outside component to avoid multiple registrations
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const WORKS = [
   {
@@ -61,7 +62,8 @@ const WORKS = [
   }
 ];
 
-const Arrow = () => (
+// Memoized Arrow component
+const Arrow = React.memo(() => (
   <svg 
     width="40" 
     height="30" 
@@ -77,71 +79,108 @@ const Arrow = () => (
       strokeLinejoin="round"
     />
   </svg>
-);
+));
+
+Arrow.displayName = 'Arrow';
+
+// Memoized SectionHeading component
+const SectionHeading = React.memo(({ title, description, headingRef }) => (
+  <div className="flex flex-col items-end md:flex-col lg:flex-row md:justify-between md:items-start mb-16 gap-4">
+    <h1 
+      ref={headingRef} 
+      className="text-6xl md:text-8xl font-light overflow-hidden"
+    >
+      {title}
+      <span className=""><sup>(06)</sup></span>
+    </h1>
+    <p className="w-full text-[#7A7875] md:max-w-xs text-sm">{description}</p>
+  </div>
+));
+
+SectionHeading.displayName = 'SectionHeading';
 
 const FeaturedWork = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
+  // Set up intersection observer for better performance
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
     
-    // Split text animation
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => observer.disconnect();
+  }, []);
+
+  // Only run GSAP animations when section is visible
+  useEffect(() => {
+    if (!isVisible) return;
+    
+    // Split text animation with reduced complexity
     const text = new SplitType(headingRef.current, {
-      types: 'chars,words',
+      types: 'chars',
       tagName: 'span'
     });
 
-    // Animate the heading characters
+    // Simplified heading animation
     gsap.from(text.chars, {
       opacity: 0,
-      y: 100,
-      rotateX: -90,
-      stagger: 0.02,
-      duration: 1,
-      ease: "power4.out",
+      y: 50, // Reduced travel distance
+      stagger: 0.01, // Reduced stagger time
+      duration: 0.8, // Faster animation
+      ease: "power3.out", // Simpler easing
       scrollTrigger: {
         trigger: headingRef.current,
         start: "top 80%",
-        end: "top 20%",
+        once: true, // Run only once
       }
     });
 
-    // Your existing grid items animation
+    // More efficient grid items animation
     const gridItems = sectionRef.current.querySelectorAll('.grid_item');
-    gsap.set(gridItems, { opacity: 0, y: 0 });
+    gsap.set(gridItems, { opacity: 0, y: 20 }); // Reduced initial offset
 
     gsap.to(gridItems, {
       opacity: 1,
       y: 0,
-      z: -100,
-      duration: 0.8,
+      duration: 0.6,
       ease: 'power2.out',
-      stagger: 0.2,
+      stagger: 0.1, // Reduced stagger time
       scrollTrigger: {
         trigger: sectionRef.current,
         start: 'top 80%',
-        end: 'bottom 20%',
-        scrub: 1
+        scrub: 1, // Smooth scrubbing effect
+        ease: 'power2.out',
       },
     });
 
     // Cleanup
     return () => {
-      text.revert();
+      if (text && text.revert) text.revert();
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
-  }, []);
+  }, [isVisible]);
 
   return (
-    <section className="min-h-screen about-section py-2 bg-[#0C0C0B] z-[10000] " ref={sectionRef}>
+    <section className="min-h-screen about-section py-2 bg-[#0C0C0B] z-[100]" ref={sectionRef}>
       <div className="max-w-[95%] mx-auto px-4 pt-1 md:px-6">
         <SectionHeading 
           title="Featured Work / "
           description="A SELECTION OF OUR MOST PASSIONATELY CRAFTED WORKS WITH FORWARD-THINKING CLIENTS AND FRIENDS OVER THE YEARS."
           headingRef={headingRef}
         />
-        <div className="grid grid-cols-1 md:grid-cols-1  lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
           {WORKS.map(work => (
             <ProjectCard key={work.id} {...work} />
           ))}
@@ -154,69 +193,86 @@ const FeaturedWork = () => {
 const ProjectCard = React.memo(({ title, categories, image, centerImage, slug }) => {
   const imageRef = useRef(null);
   const categoriesRef = useRef([]);
+  const [isInView, setIsInView] = useState(false);
 
-  const handleMouseEnter = () => {
-    gsap.to(imageRef.current, {
-      scale: 1.1,
-      duration: 0.3,
-      ease: "power2.out"
-    });
-  };
+  // Optimized mouse event handlers with useCallback
+  const handleMouseEnter = useCallback(() => {
+    if (imageRef.current) {
+      gsap.to(imageRef.current, {
+        scale: 1.05, // Reduced scale amount
+        duration: 0.2, // Faster animation
+        ease: "power1.out" // Simpler easing
+      });
+    }
+  }, []);
 
-  const handleMouseLeave = () => {
-    gsap.to(imageRef.current, {
-      scale: 1,
-      duration: 0.3,
-      ease: "power2.out"
-    });
-  };
+  const handleMouseLeave = useCallback(() => {
+    if (imageRef.current) {
+      gsap.to(imageRef.current, {
+        scale: 1,
+        duration: 0.2,
+        ease: "power1.out"
+      });
+    }
+  }, []);
 
+  // Use intersection observer for category text effects
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !isInView) {
+          setIsInView(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+    
+    const cardElement = categoriesRef.current[0]?.parentElement?.parentElement;
+    if (cardElement) {
+      observer.observe(cardElement);
+    }
+    
+    return () => observer.disconnect();
+  }, [isInView]);
+
+  // Optimized category text scramble effect
+  useEffect(() => {
+    if (!isInView) return;
+    
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let intervals = [];
     
     categoriesRef.current.forEach((categoryElement, index) => {
-      if (!categoryElement) return; // Prevent null errors
+      if (!categoryElement) return;
 
       const originalText = categoryElement.dataset.value;
       let iteration = 0;
-      let interval;
+      
+      const interval = setInterval(() => {
+        categoryElement.innerText = originalText
+          .split("")
+          .map((letter, idx) => {
+            if (idx < iteration) {
+              return originalText[idx];
+            }
+            return letters[Math.floor(Math.random() * 26)];
+          })
+          .join("");
 
-      const scrambleText = () => {
-        clearInterval(interval);
-        interval = setInterval(() => {
-          categoryElement.innerText = originalText
-            .split("")
-            .map((letter, idx) => {
-              if (idx < iteration) {
-                return originalText[idx];
-              }
-              return letters[Math.floor(Math.random() * 26)];
-            })
-            .join("");
-
-          if (iteration >= originalText.length) {
-            clearInterval(interval);
-          }
-          iteration += 1 / 3;
-        }, 30);
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            scrambleText();
-          }
-        });
-      }, { threshold: 0.5 });
-
-      observer.observe(categoryElement);
-
-      return () => {
-        clearInterval(interval);
-        observer.disconnect();
-      };
+        if (iteration >= originalText.length) {
+          clearInterval(interval);
+        }
+        
+        iteration += 1 / 2; // Faster iterations
+      }, 50); // Longer interval for better performance
+      
+      intervals.push(interval);
     });
-  }, [categories]);
+
+    return () => {
+      intervals.forEach(interval => clearInterval(interval));
+    };
+  }, [categories, isInView]);
 
   return (
     <a 
@@ -241,6 +297,8 @@ const ProjectCard = React.memo(({ title, categories, image, centerImage, slug })
             height={500}
             alt={`${title} Center Image`}
             className="w-1/2 h-auto scale-140 rounded-lg"
+            priority={false}
+            loading="lazy"
           />
         </div>
       </div>
@@ -254,7 +312,6 @@ const ProjectCard = React.memo(({ title, categories, image, centerImage, slug })
               ref={el => categoriesRef.current[index] = el}
             >
               {category}
-              {index < categories.length - 1 && <span className="mx-1">•</span>}
             </span>
           ))}
         </div>
@@ -269,20 +326,6 @@ const ProjectCard = React.memo(({ title, categories, image, centerImage, slug })
   );
 });
 
-
 ProjectCard.displayName = 'ProjectCard';
-
-const SectionHeading = ({ title, description, headingRef }) => (
-  <div className="flex flex-col items-end md:flex-col lg:flex-row md:justify-between md:items-start mb-16 gap-4">
-    <h1 
-      ref={headingRef} 
-      className="text-6xl md:text-8xl font-light overflow-hidden"
-    >
-      {title}
-      <span className=" "><sup>(06)</sup></span>
-    </h1>
-    <p className="w-full  text-[#7A7875] md:max-w-xs text-sm ">{description}</p>
-  </div>
-);
 
 export default FeaturedWork;
