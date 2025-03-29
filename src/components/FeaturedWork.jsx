@@ -84,13 +84,14 @@ const Arrow = React.memo(() => (
 Arrow.displayName = 'Arrow';
 
 // Memoized SectionHeading component
-const SectionHeading = React.memo(({ title, description, headingRef }) => (
+const SectionHeading = React.memo(({ title, subtitle, description, headingRef }) => (
   <div className="flex flex-col items-end md:flex-col lg:flex-row md:justify-between md:items-start mb-16 gap-4">
     <h1 
       ref={headingRef} 
       className="text-6xl md:text-8xl font-light overflow-hidden"
     >
       {title}
+      {subtitle}
       <span className=""><sup>(06)</sup></span>
     </h1>
     <p className="w-full text-[#7A7875] md:max-w-xs text-sm">{description}</p>
@@ -176,7 +177,8 @@ const FeaturedWork = () => {
     <section className="min-h-screen about-section py-2 bg-[#0C0C0B] z-[100]" ref={sectionRef}>
       <div className="max-w-[95%] mx-auto px-4 pt-1 md:px-6">
         <SectionHeading 
-          title="Featured Work / "
+          title="Featured "
+          subtitle="Work /"
           description="A SELECTION OF OUR MOST PASSIONATELY CRAFTED WORKS WITH FORWARD-THINKING CLIENTS AND FRIENDS OVER THE YEARS."
           headingRef={headingRef}
         />
