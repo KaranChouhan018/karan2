@@ -1,8 +1,7 @@
 import "./globals.css";
 import localFont from "next/font/local";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import Navbar from "@/components/Navbar";
 
 // Optimize font loading
 const spaceMono = localFont({
@@ -89,7 +88,7 @@ export default function RootLayout({ children }) {
       <body className={`${spaceMono.className} ${neue.className} antialiased`}>
         <CustomCursor />
         <Navbar />
-        <main>{children}</main>
+        {children}
         
       </body>
     </html>
