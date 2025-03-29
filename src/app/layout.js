@@ -5,13 +5,13 @@ import Navbar from "@/components/Navbar";
 
 // Optimize font loading
 const spaceMono = localFont({
-  src: "../public/fonts/GeneralSans-Bold.otf",
+  src: "../../public/fonts/GeneralSans-Bold.otf",
   variable: "--font-space-mono",
   display: "swap",
 });
 
 const neue = localFont({
-  src: "../public/fonts/PPNeueMontreal-Medium.otf",
+  src: "../../public/fonts/PPNeueMontreal-Medium.otf",
   variable: "--font-neue-montreal",
   display: "swap",
 });
@@ -57,7 +57,11 @@ export const metadata = {
       { url: '/apple-touch-icon.png' },
     ],
     other: [
-      { rel: 'manifest', url: '/site.webmanifest' },
+      {
+        rel: 'mask-icon',
+        url: '/safari-pinned-tab.svg',
+        color: '#5bbad5'
+      },
     ],
   },
   manifest: '/site.webmanifest',
@@ -69,7 +73,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`scroller-hidden ${spaceMono.variable} ${neue.variable}`}
     >
-      <body className={`antialiased`}>
+      <body
+        className={`  ${spaceMono.className} ${neue.className} antialiased`}
+      >
         <CustomCursor />
         <Navbar />
         {children}
