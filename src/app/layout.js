@@ -5,13 +5,13 @@ import Navbar from "@/components/Navbar";
 
 // Optimize font loading
 const spaceMono = localFont({
-  src: "../../public/fonts/GeneralSans-Bold.otf",
+  src: "../public/fonts/GeneralSans-Bold.otf",
   variable: "--font-space-mono",
   display: "swap",
 });
 
 const neue = localFont({
-  src: "../../public/fonts/PPNeueMontreal-Medium.otf",
+  src: "../public/fonts/PPNeueMontreal-Medium.otf",
   variable: "--font-neue-montreal",
   display: "swap",
 });
@@ -47,49 +47,32 @@ export const metadata = {
       "en-US": "https://codebykaran.com/en-US",
     },
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png' },
+    ],
+    other: [
+      { rel: 'manifest', url: '/site.webmanifest' },
+    ],
+  },
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`scroller-hidden ${spaceMono.variable} ${neue.variable}`}>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-
-        {/* Preconnect to any third-party domains you'll load resources from */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* Structured data for rich results */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Karan Chouhan",
-              "url": "https://codebykaran.com",
-              "jobTitle": "Front End Developer",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Freelance",
-              },
-              "sameAs": [
-                "https://github.com/KaranChouhan018",
-                "https://www.linkedin.com/in/karan-chouhan-66528a248/",
-                "https://x.com/KaranChouh2108?t=GRjwhfujAuRZHNj9NnzF-A&s=09",
-              ],
-            }),
-          }}
-        />
-      </head>
-      <body className={`${spaceMono.className} ${neue.className} antialiased`}>
+    <html
+      lang="en"
+      className={`scroller-hidden ${spaceMono.variable} ${neue.variable}`}
+    >
+      <body className={`antialiased`}>
         <CustomCursor />
         <Navbar />
         {children}
-        
       </body>
     </html>
   );
