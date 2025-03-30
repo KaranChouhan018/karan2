@@ -108,9 +108,9 @@ const Footer = ( ) => {
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
             <ul className="space-y-2 cl-effect-5">
               {[
-                  { text: "Awwwwards", href: "/" },
-                  { text: "Figma Templates", href: "/FloatingImage" },
-                  { text: "Framer Motion", href: "/newsletter" }
+                  { text: "Awwwwards", href: "https://www.awwwards.com/" },
+                  { text: "Figma Templates", href: "https://www.figma.com/templates/" },
+                  { text: "Framer Motion", href: "https://www.framer.com/marketplace/" }
               ].map((resource, index) => (
                 <li key={index} className="w-full touch-auto">
                   <a

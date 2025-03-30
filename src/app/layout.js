@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from '@vercel/analytics/next'; 
 import localFont from "next/font/local";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
@@ -79,6 +80,7 @@ export default function RootLayout({ children }) {
         <CustomCursor />
         <Navbar />
         {children}
+        <Analytics />
       </body>
     </html>
   );
