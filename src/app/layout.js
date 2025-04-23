@@ -1,6 +1,7 @@
 import "./globals.css";
 import localFont from "next/font/local";
 import CustomCursor from "@/components/CustomCursor";
+import {Analytics} from '@vercel/analytics/react';
 import Navbar from "@/components/Navbar";
 
 // Optimize font loading
@@ -76,6 +77,7 @@ export default function RootLayout({ children }) {
       <body
         className={`  ${spaceMono.className} ${neue.className} antialiased`}
       >
+      <Analytics />
         <CustomCursor />
         <Navbar />
         {children}
