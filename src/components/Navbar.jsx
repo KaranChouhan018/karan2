@@ -211,11 +211,11 @@ export default function Navbar() {
         </span>
         <span className="relative text-md z-20 block overflow-hidden transition-all">
           <span
-            after="Book a Call  ↗"
+            after="Book a Call"
             className="block after:absolute after:left-0 after:block after:translate-y-0 after:transition-all after:duration-500 after:ease-expo after:content-[attr(after)] sm:group-hover:after:-translate-y-[100%]"
           >
             <span className="flex transition-all duration-500 ease-expo sm:group-hover:-translate-y-full">
-              Book a Call ↗
+              Book a Call 
             </span>
           </span>
         </span>

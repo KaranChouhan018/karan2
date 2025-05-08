@@ -104,9 +104,10 @@ export default function Testimonials() {
             <Image
               src={current.imageSrc}
               alt={current.imageAlt}
-              width={1080}
-              height={1980}
-              className="rounded-md grayscale-100" 
+              width={1000}
+              height={1000}
+              priority
+              className="rounded-md object-center grayscale  transition-all duration-500" 
             />
           </div>
         </div>
@@ -144,7 +145,8 @@ export default function Testimonials() {
             alt="Portrait of Pieter Pattyn smiling in front of a patterned background"
             width={300}
             height={250}
-            className="rounded-lg grayscale-100"
+            priority
+            className="rounded-lg object-cover object-center grayscale hover:grayscale-0 transition-all duration-500"
           />
 
           {/* Testimonial Text */}
@@ -183,7 +185,8 @@ export default function Testimonials() {
             alt="Portrait of Pieter Pattyn smiling in front of a patterned background"
             width={300}
             height={250}
-            className="rounded-lg grayscale-100"
+            priority
+            className="rounded-lg object-cover object-center grayscale hover:grayscale-0 transition-all duration-500"
           />
 
           {/* Testimonial Text */}
