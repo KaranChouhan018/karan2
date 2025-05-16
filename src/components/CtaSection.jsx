@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitType from "split-type";
@@ -11,8 +11,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 const CtaSection = () => {
   const headingRef = useRef(null);
+  const [currentMonth, setCurrentMonth] = useState("");
 
   useEffect(() => {
+    // Set current month
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const month = monthNames[new Date().getMonth()];
+    setCurrentMonth(month);
+
     // Split the text
     const text = new SplitType(headingRef.current, {
       types: 'chars,words',
@@ -105,13 +111,13 @@ const CtaSection = () => {
               alt=""
             width={6}
             height={6}
-              className="w-6 h-6 sm:w-8 sm:h-8 animate-spin"
+              className="w-6 h-6 sm:w-8 sm:h-8 animate-spin duration-100 ease-in-out"
             />
           </div>
           <div className="border-l border-[#C4C4BB] pl-3">
             <p className="text-[#C4C4BB] text-sm ">Working Globally</p>
             <p className="text-[#C4C4BB] text-sm">
-              Available Apr &apos;25
+              Available {currentMonth} &apos;25
             </p>
           </div>
         </div>
