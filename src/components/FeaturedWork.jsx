@@ -37,8 +37,8 @@ const WORKS = [
   },
   {
     id: 6,
-    title: 'Color,Agency : Web Agency & Design Studio',
-    categories: ['CONCEPT •', 'DESIGN •', 'DEVELOPMENT •', ' '],
+    title: 'Color.Agency : Web & Design Studio',
+    categories: ['CONCEPT •', 'DESIGN •', 'DEVELOPMENT ', ' '],
     image: '/images/floating_4.jpg',
     centerImage: '/P8.png',
     slug: 'https://karanchouhan018.github.io/Color.agency/'
