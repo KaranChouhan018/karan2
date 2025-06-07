@@ -22,13 +22,13 @@ const WORKS = [
   {
     id: 2,
     title: 'LiveDocs : Text Editor',
-    categories: ['CONCEPT •', '3D  •', 'MOGRAPH •', 'VIDEO'],
+    categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', 'AI'],
     image: '/images/floating_2.jpg',
     centerImage: '/p2.png',
     slug: 'https://livedocs-lime.vercel.app/'
   },
   {
-    id: 3,
+    id: 4,
     title: 'Niklas Designs : Portfolio',
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D'],
     image: '/images/floating_3.jpg',
@@ -36,15 +36,15 @@ const WORKS = [
     slug: 'https://www.niklasdesigns.com/'
   },
   {
-    id: 4,
-    title: 'LukeFrame : Web Agency',
-    categories: ['CONCEPT •', '3D  •', 'MOGRAPH •', 'VIDEO '],
+    id: 6,
+    title: 'Color,Agency : Web Agency & Design Studio',
+    categories: ['CONCEPT •', 'DESIGN •', 'DEVELOPMENT •', ' '],
     image: '/images/floating_4.jpg',
-    centerImage: '/p4.png',
-    slug: 'porsche-dream-machine'
+    centerImage: '/P8.png',
+    slug: 'https://karanchouhan018.github.io/Color.agency/'
   },
   {
-    id: 5,
+    id: 3,
     title: 'Ingenio : Design Studio',
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D '],
     image: '/images/floating_5.jpg',
@@ -52,7 +52,7 @@ const WORKS = [
     slug: 'https://ingenio-website.vercel.app/'
   },
   {
-    id: 6,
+    id: 5,
     title: 'Thorny: Digital Agency',
     categories: ['WEB •',  'DESIGN •', 'DEVELOPMENT •', '3D '],
     image: '/images/floating_6.jpg',
