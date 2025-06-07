@@ -37,7 +37,7 @@ const WORKS = [
   },
   {
     id: 6,
-    title: 'Color.Agency : Web & Design Studio',
+    title: 'Color Agency : Web Studio',
     categories: ['CONCEPT •', 'DESIGN •', 'DEVELOPMENT ', ' '],
     image: '/images/floating_4.jpg',
     centerImage: '/P8.png',
