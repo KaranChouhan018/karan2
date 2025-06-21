@@ -62,10 +62,10 @@ const Footer = ( ) => {
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
             <ul className="space-y-1 font-light cl-effect-5">
               {[
-                { text: "LinkedIn", href: "https://www.linkedin.com/in/karan-chouhan-66528a248" },
-                { text: "Instagram", href: "https://www.instagram.com/_karxnwrites/" },
-                { text: "Fiverr", href: "https://www.fiverr.com/s/kL6x5dL" }, 
-                { text: "WhatsApp", href: "https://wa.me/+917898341464" }
+                { text: "LinkedIn", href: "#" },
+                { text: "Instagram", href: "#" },
+                { text: "Fiverr", href: "#" }, 
+                { text: "WhatsApp", href: "#" }
               ].map((social, index) => (
                 <li key={index} className="w-full touch-auto">
                   <a
@@ -87,9 +87,9 @@ const Footer = ( ) => {
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
             <ul className="space-y-1 font-light cl-effect-5">
               {[
-                { text: "Awwwwards", href: "https://www.awwwards.com/" },
-                { text: "Figma Templates", href: "https://www.figma.com/templates/" },
-                { text: "Framer Motion", href: "https://www.framer.com/marketplace/" }
+                { text: "Awwwwards", href: "#" },
+                { text: "Figma Templates", href: "#" },
+                { text: "Framer Motion", href: "#" }
               ].map((resource, index) => (
                 <li key={index} className="w-full touch-auto">
                   <a
@@ -108,9 +108,9 @@ const Footer = ( ) => {
             <div className="h-px w-full bg-[#6D665E] mb-4"></div>
             <ul className="space-y-2 cl-effect-5">
               {[
-                  { text: "Awwwwards", href: "https://www.awwwards.com/" },
-                  { text: "Figma Templates", href: "https://www.figma.com/templates/" },
-                  { text: "Framer Motion", href: "https://www.framer.com/marketplace/" }
+                  { text: "Awwwwards", href: "#" },
+                  { text: "Figma Templates", href: "#" },
+                  { text: "Framer Motion", href: "#" }
               ].map((resource, index) => (
                 <li key={index} className="w-full touch-auto">
                   <a
@@ -128,10 +128,10 @@ const Footer = ( ) => {
         <div className="mt-[10%] md:mt-[5%]  w-full flex flex-row gap-[10px] md:flex-row justify-between items-end md:items-center">
           <div>
             <p className="text-xl block md:hidden md:text-5xl font-bold">© 2025 </p>
-            <p className="text-2xl block md:hidden md:text-5xl font-bold">Karan Chouhan </p>
+            <p className="text-2xl block md:hidden md:text-5xl font-bold">Your Name </p>
             <p className="text-2xl block md:hidden md:text-5xl font-bold">All rights reserved.</p>
 
-            <p className='hidden md:block md:text-4xl'>© 2025 Karan Chouhan <br /> All rights reserved.</p>
+            <p className='hidden md:block md:text-4xl'>© 2025 Your Name <br /> All rights reserved.</p>
           </div>
           <div className=" md:mt-0">
             <p className="uppercase text-sm font-bold mb-1">LOCAL TIME</p>
@@ -187,5 +187,3 @@ const Footer = ( ) => {
 };
 
 export default Footer;
-
-

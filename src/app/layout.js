@@ -19,33 +19,33 @@ const neue = localFont({
 
 // Enhanced metadata for better SEO
 export const metadata = {
-  title: "CodebyKaran - Front End Developer",
+  title: "YourBrand - Front End Developer",
   description:
-    "Karan Chouhan, Freelance Front End Developer based in India. Specializing in responsive web design, React, and Next.js applications.",
+    "Your Name, Freelance Front End Developer based in Your Location. Specializing in responsive web design, React, and Next.js applications.",
   keywords:
-    "front end developer, web developer, React developer, Next.js, India, freelance developer, Karan Chouhan",
+    "front end developer, web developer, React developer, Next.js, Your Location, freelance developer, Your Name",
   robots: "index, follow",
   openGraph: {
     type: "website",
     locale: "en_IE",
-    url: "https://codebykaran.com/",
-    title: "CodebyKaran - Front End Developer",
+    url: "https://yourdomain.com/",
+    title: "YourBrand - Front End Developer",
     description:
-      "Karan Chouhan, Freelance Front End Developer based in India. Specializing in responsive web design, React, and Next.js applications.",
+      "Your Name, Freelance Front End Developer based in Your Location. Specializing in responsive web design, React, and Next.js applications.",
     images: [
       {
         url: "/profile.jpg",
         width: 1200,
         height: 630,
-        alt: "CodebyKaran",
+        alt: "YourBrand",
       },
     ],
-    siteName: "CodebyKaran",
+    siteName: "YourBrand",
   },
   alternates: {
-    canonical: "https://codebykaran.com",
+    canonical: "https://yourdomain.com",
     languages: {
-      "en-US": "https://codebykaran.com/en-US",
+      "en-US": "https://yourdomain.com/en-US",
     },
   },
   icons: {

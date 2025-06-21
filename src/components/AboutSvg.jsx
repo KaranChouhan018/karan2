@@ -108,7 +108,7 @@ export default function AboutSvg() {
       <div className="absolute top-0 left-0 right-0 bottom-0  mt-[20%] md:mt-[10%]  lg:mt-[5%] flex items-start justify-center ">
         <Link
           className="group pointer-events-auto relative flex px-10 md:px-20 py-6 md:py-8 transform-none items-center justify-center overflow-hidden rounded-full bg-[#3A3733] font-bold uppercase tracking-base  px-space-lg py-space-sm text-base"
-          href={"https://github.com/KaranChouhan018"}
+          href={"#"}
         >
           <span className="absolute inset-0 z-10 block overflow-hidden">
             <span className="block h-full w-full translate-y-full rounded-t-[15rem] bg-[#8C8C73] transition-all duration-500 ease-expo sm:group-hover:translate-y-0 sm:group-hover:rounded-none"></span>

@@ -55,13 +55,13 @@ export default function Nav({ onClose, scrollToSection }) {
         <div className="mt-10 space-y-4">
           <h2 className="text-xl  font-bold">Email Address</h2>
           <ul className="space-y-2 text-[20px] font-light text-[#C4C4BB] cl-effect-5">
-              <li><Link href="mailto:codebykaran18@gmail.com"><span data-hover="codebykaran18@gmail.com">codebykaran18@gmail.com</span></Link></li>
+              <li><Link href="#"><span data-hover="your@email.com">your@email.com</span></Link></li>
           </ul>
           <div className="flex flex-row justify-start space-x-2 mt-10 cursor-pointer">
           <Link
                 className="group pointer-events-auto relative flex px-4 py-2 transform-none items-center justify-center overflow-hidden rounded-full border border-[#8C8C73] tracking-base  px-space-lg py-space-sm text-base"
                 
-                href="https://www.linkedin.com/in/karan-chouhan-66528a248"
+                href="#"
               >
                 <span className="absolute inset-0 z-10 block overflow-hidden">
                   <span className="block h-full w-full translate-y-full rounded-t-[15rem] bg-[#8C8C73] transition-all duration-500 ease-expo sm:group-hover:translate-y-0 sm:group-hover:rounded-none"></span>
@@ -70,10 +70,10 @@ export default function Nav({ onClose, scrollToSection }) {
                   <span
                     after="Linkedin"
                     className="block after:absolute after:left-0 after:block after:translate-y-0 after:transition-all after:duration-500 after:ease-expo after:content-[attr(after)] sm:group-hover:after:-translate-y-[100%]"
-                    href="https://www.linkedin.com/in/karan-chouhan-66528a248"
+                    href="#"
                   >
                     <span
-                      href="https://www.linkedin.com/in/karan-chouhan-66528a248"
+                      href="#"
                       className="flex transition-all duration-500 ease-expo sm:group-hover:-translate-y-full"
                     >
                       Linkedin
@@ -85,7 +85,7 @@ export default function Nav({ onClose, scrollToSection }) {
               <Link
                 className="group pointer-events-auto relative flex px-4 py-2 transform-none items-center justify-center overflow-hidden rounded-full border border-[#8C8C73]    tracking-base  px-space-lg py-space-sm text-base"
                 
-                href="https://github.com/KaranChouhan018"
+                href="#"
               >
                 <span className="absolute inset-0 z-10 block overflow-hidden">
                   <span className="block h-full w-full translate-y-full rounded-t-[15rem] bg-[#8C8C73] transition-all duration-500 ease-expo sm:group-hover:translate-y-0 sm:group-hover:rounded-none"></span>
@@ -94,10 +94,10 @@ export default function Nav({ onClose, scrollToSection }) {
                   <span
                     after="Github"
                     className="block after:absolute after:left-0 after:block after:translate-y-0 after:transition-all after:duration-500 after:ease-expo after:content-[attr(after)] sm:group-hover:after:-translate-y-[100%]"
-                    href="https://github.com/KaranChouhan018"
+                    href="#"
                   >
                     <span
-                      href="https://github.com/KaranChouhan018"
+                      href="#"
                       className="flex transition-all duration-500 ease-expo sm:group-hover:-translate-y-full"
                     >
                       Github
@@ -109,7 +109,7 @@ export default function Nav({ onClose, scrollToSection }) {
               <Link
                 className="group pointer-events-auto relative flex px-4 py-2 transform-none items-center justify-center overflow-hidden rounded-full border border-[#8C8C73] tracking-base  px-space-lg py-space-sm text-base"
               
-                href="https://www.instagram.com/_karxnwrites/"
+                href="#"
               >
                 <span className="absolute inset-0 z-10 block overflow-hidden">
                   <span className="block h-full w-full translate-y-full rounded-t-[15rem] bg-[#8C8C73] transition-all duration-500 ease-expo sm:group-hover:translate-y-0 sm:group-hover:rounded-none"></span>
@@ -118,10 +118,10 @@ export default function Nav({ onClose, scrollToSection }) {
                   <span
                     after="Instagram"
                     className="block after:absolute after:left-0 after:block after:translate-y-0 after:transition-all after:duration-500 after:ease-expo after:content-[attr(after)] sm:group-hover:after:-translate-y-[100%]"
-                    href="https://www.instagram.com/_karxnwrites/"
+                    href="#"
                   >
                     <span
-                      href="https://www.instagram.com/_karxnwrites/"
+                      href="#"
                       className="flex transition-all duration-500 ease-expo sm:group-hover:-translate-y-full"
                     >
                       Instagram

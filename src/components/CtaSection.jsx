@@ -81,7 +81,7 @@ const CtaSection = () => {
       <Link
         className="group pointer-events-auto relative flex px-20 py-8 md:py-10 transform-none items-center justify-center overflow-hidden rounded-full bg-[#3A3733] font-bold uppercase tracking-base  px-space-lg py-space-sm text-base"
         path="/"
-        href='https://cal.com/karan-chouhan-2jvqjy/15min'
+        href='#'
       >
         <span className="absolute inset-0 z-10 block overflow-hidden">
           <span className="block h-full w-full translate-y-full rounded-t-[15rem] bg-[#8C8C73] transition-all duration-500 ease-expo sm:group-hover:translate-y-0 sm:group-hover:rounded-none"></span>
@@ -90,10 +90,10 @@ const CtaSection = () => {
           <span
             after="Book a Call "
             className="block after:absolute after:left-0 after:block after:translate-y-0 after:transition-all after:duration-500 after:ease-expo after:content-[attr(after)] sm:group-hover:after:-translate-y-[100%]"
-            href='https://cal.com/karan-chouhan-2jvqjy/15min'
+            href='#'
           >
             <span
-            href='https://cal.com/karan-chouhan-2jvqjy/15min'
+            href='#'
              className="flex transition-all duration-500 ease-expo sm:group-hover:-translate-y-full">
               Book a Call 
 
@@ -129,7 +129,7 @@ const CtaSection = () => {
           <div className="flex items-center justify-center lg:justify-end ">
           <span className="mr-2 ">↳</span>
           <ul className="space-y-2 font-light text-[#C4C4BB] cl-effect-5">
-              <li><Link href="mailto:codebykaran18@gmail.com"><span data-hover="codebykaran18@gmail.com">codebykaran18@gmail.com</span></Link></li>
+              <li><Link href="#"><span data-hover="your@email.com">your@email.com</span></Link></li>
           </ul>
           </div>
          

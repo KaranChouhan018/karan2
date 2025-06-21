@@ -17,7 +17,7 @@ const WORKS = [
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D'],
     image: '/images/floating_1.jpg',
     centerImage: '/p1.png',
-    slug: 'https://frontend-v8zc.vercel.app/'
+    slug: '#'
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const WORKS = [
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', 'AI'],
     image: '/images/floating_2.jpg',
     centerImage: '/p2.png',
-    slug: 'https://livedocs-lime.vercel.app/'
+    slug: '#'
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const WORKS = [
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D'],
     image: '/images/floating_3.jpg',
     centerImage: '/p3.png',
-    slug: 'https://www.niklasdesigns.com/'
+    slug: '#'
   },
   {
     id: 6,
@@ -41,7 +41,7 @@ const WORKS = [
     categories: ['CONCEPT •', 'DESIGN •', 'DEVELOPMENT ', ' '],
     image: '/images/floating_4.jpg',
     centerImage: '/P8.png',
-    slug: 'https://karanchouhan018.github.io/Color.agency/'
+    slug: '#'
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ const WORKS = [
     categories: ['WEB •', 'DESIGN •', 'DEVELOPMENT •', '3D '],
     image: '/images/floating_5.jpg',
     centerImage: '/p9.jpg',
-    slug: 'https://ingenio-website.vercel.app/'
+    slug: '#'
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ const WORKS = [
     categories: ['WEB •',  'DESIGN •', 'DEVELOPMENT •', '3D '],
     image: '/images/floating_6.jpg',
     centerImage: '/p10.jpg',
-    slug: 'https://thorny-website.vercel.app/'
+    slug: '#'
   }
 ];
 

@@ -143,7 +143,7 @@ export default function Navbar() {
       >
         <div className="flex flex-col md:flex-row items-start md:gap-16 justify-between md:items-center">
           <Link href="/">
-            <h1 className="font-bold text-md text-black md:text-xl">CodeByKaran <sup>©</sup></h1>
+            <h1 className="font-bold text-md text-black md:text-xl">YourBrand <sup>©</sup></h1>
           </Link>
           <Magnetic>
             <h1 className="text-sm text-[#6A645C] font-mono">(Website Designer & Developer)</h1>
@@ -203,7 +203,7 @@ export default function Navbar() {
       <Link
         ref={bookRef}
         className="group scale-0 pointer-events-auto fixed top-10 right-22 lg:right-26 flex px-6 py-3.5 md:py-4.5 md:px-8 transform-none items-center justify-center overflow-hidden rounded-full bg-[#3A3733] font-bold uppercase tracking-base px-space-lg py-space-sm z-[100]"
-        href='https://cal.com/karan-chouhan-2jvqjy/15min'
+        href='#'
         target="_blank"
       >
         <span className="absolute inset-0 z-10 block overflow-hidden">
