@@ -66,7 +66,7 @@ const CustomCursor = () => {
         gsap.to(cursorArrow, {
           opacity: 0,
           scale: 0,
-          duration: 0.3
+          duration: 0.2
         });
       }
     };
